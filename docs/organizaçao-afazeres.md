@@ -30,9 +30,19 @@
 Obs: Toda etapa e tudo o que for feito deverá ser escrito no documento da semana em `/entregas` seguindo os padrões em `guia-escrita.md`
 
 ## Sofia
-- [ ] Organização Inicial das pastas
+- [x] Organização Inicial das pastas
+- [ ] Revisão requisitos
+- [ ] Critérios de aceite
+- [ ] Casos de uso
 
 
 ## Nadia
+- [ ] Visão geral
+- [ ] História de usuário
+- [ ] Casos de uso
 
 ## Luiza
+- [ ] Revisão requisitos
+- [ ] Planejamento conversa com cliente
+- [ ] Regras de negócio
+
