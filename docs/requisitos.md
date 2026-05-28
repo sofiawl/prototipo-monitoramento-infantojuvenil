@@ -11,7 +11,10 @@ O que deve ser alterado? Adicionado? Excluído?
 ● RNF06: O design e a experiência devem ser minimamente semelhantes à interface do
 Conselho Estadual da Criança e do Adolescente. -> realmente é não funcional?
 ● RNF07: O sistema deve suportar a inserção de um número arbitrário (grande) de dados. -> qual é o número arbritário?
--> Plano Decenal de Políticas para a Criança e o Adolescente
+
+- faltam requisitos sobre acessos de cada usuário, quem pode visualizar quem pode alterar
+- formato de dados inseridos
+- usuário preenche o plano ou o professor de economia é o único criador do plano? 
 
 
 ## Requisitos Funcionais

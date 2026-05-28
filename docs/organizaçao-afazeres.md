@@ -6,6 +6,7 @@
 - Delimitar afazeres para cada membro
 - Escrever `visao-geral.md`
 - Ler requisitos iniciais, documentar o que acha de deve ser alterado
+- Planejar reunião com o cliente
 **O que deve ser entregue**: Escopo, atores, revisão dos requisitos e identificação de inconsistências
 
 ### Entrega 2
@@ -13,7 +14,6 @@
 - Escrever `historias-usuario.md`
 - Escrever `casos-uso.md`
 - Escrever `criterios-aceite.md`
-- Planejar reunião com o cliente
 - Documentar levantamentos sobre reunião com cliente: o que deve ser alterado? ...
 **O que deve ser entregue**: Backlog, histórias e critérios de aceitação
 
@@ -25,7 +25,7 @@
 - Apresentação final do projeto
 - Escrever `validacao-requisitos.md`
 - Escrever `validacao-prototipo.md`
-**O que deve ser entregue**:
+**O que deve ser entregue**: Link do repositório Git e Apresentação final do projeto
 
 Obs: Toda etapa e tudo o que for feito deverá ser escrito no documento da semana em `/entregas` seguindo os padrões em `guia-escrita.md`
 
