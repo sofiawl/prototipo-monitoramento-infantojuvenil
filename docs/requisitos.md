@@ -1,20 +1,29 @@
 # Requisitos
 [Levantamento de Requisitos fornecido](https://moodle.c3sl.ufpr.br/pluginfile.php/239367/mod_resource/content/0/Requisitos%20plano%20decenal%20-%20Resultado%20Final.pdf)
-O que deve ser alterado? Adicionado? Excluído?
+
 
 ## Log de mudanças:
-- 25/05: Adição dos requisitos iniciais
+### 25/05: Adição dos requisitos iniciais
 
-- 28/05:
-
-● RNF05: O sistema deve ser bem documentado. -> quão bem documentado?
-● RNF06: O design e a experiência devem ser minimamente semelhantes à interface do
-Conselho Estadual da Criança e do Adolescente. -> realmente é não funcional?
-● RNF07: O sistema deve suportar a inserção de um número arbitrário (grande) de dados. -> qual é o número arbritário?
-
-- faltam requisitos sobre acessos de cada usuário, quem pode visualizar quem pode alterar
-- formato de dados inseridos
-- usuário preenche o plano ou o professor de economia é o único criador do plano? 
+### 28/05: Levantamento de mudanças dos requisitos iniciais
+**Alterações:**
+- RNF05:
+    - Antes: O sistema deve ser bem documentado.
+    - Depois: O sistema deve possuir documentação no repositório, em português, incluindo stack e versões das ferramentas, justificativas das decisões técnicas principais, instruções de execução do protótipo e matriz de rastreabilidade requisito.
+    - Porque a mudança foi necessária? Porque o requisito antigo estava muito vago e seria difícil de verificar ele.
+- RNF06:
+  - Antes: O design e a experiência devem ser minimamente semelhantes à interface do Conselho Estadual da Criança e do Adolescente.
+  - Depois: A interface do protótipo deve manter consistência visual e de navegação com o site institucional do Conselho Estadual da Criança e do Adolescente do Paraná (https://www.cedca.pr.gov.br/), reproduzindo no mínimo: paleta de cores e tipografia institucionais e nomenclatura e ícones compatíveis com o vocabulário já usado pelo Conselho.
+  - Porque a mudança foi necessária? O texto original era subjetivo (“minimamente semelhantes”), não indicava referência nem critérios de verificação
+- RNF07:
+    - Antes: O sistema deve suportar a inserção de um número arbitrário (grande) de dados.
+    - Depois: O protótipo deve demonstrar suporte a um dataset de referência que represente o Plano Decenal em escala estadual (mínimo: dados dos 23 compromissos, hierarquia completa de exemplo e histórico simulado de 10 anos), com importação por planilha e consultas (busca/filtro) funcionais sem falha de integridade
+    - Porque a mudança foi necessária? “Número arbitrário (grande)” não define limites nem como validar
+**Inclusões**
+- RF24: Controle de acesso por perfil (quem pode visualizar ou alterar)
+- RF25: Validação de formato dos dados inseridos (interface e planilha)
+- RF26: Interface em português e espanhol
+- RF27: Área dedicada a crianças e adolescentes (informação e ajuda/socorro
 
 
 ## Requisitos Funcionais
@@ -56,7 +65,11 @@ camadas: SEDEF, Conselho Estadual/Secretárias, público geral).
 ● RF22: O sistema deve permitir a alteração de dados por meio da interface do
 sistema.
 ● RF23: O sistema deve utilizar Tokens JWT para aumentar a segurança.
-
+● RF24: O sistema deve controlar, por perfil de usuário (SEDEF, Conselho/Secretarias, público geral), o que cada um pode visualizar e o que pode alterar, bloqueando edição para perfis sem permissão.
+● RF25: O sistema deve validar formato e campos obrigatórios dos dados inseridos pela interface e por planilha (RF21), recusando registros inválidos e informando o erro ao usuário.
+● RF26: O sistema deve permitir alternar o idioma da interface entre português e espanhol.
+● RF27: O sistema deve disponibilizar área para crianças e adolescentes com explicação acessível do Compromisso Decenal
+● RF28: O sistema deve disponibilizar informações de “Procure ajuda” e informações de canais de acolhimento e socorro para crianças e adolescentes.
 
 ## Requisitos Não Funcionais
 ● RNF01: A interface deve ser acessível conforme os princípios do Design Universal,
@@ -68,9 +81,8 @@ móveis).
 menos 10 anos.
 ● RNF04: O sistema deve garantir a integridade dos dados exportados (Excel/PDF/CSV),
 sem perda de informações ou formatações incorretas.
-● RNF05: O sistema deve ser bem documentado.
-● RNF06: O design e a experiência devem ser minimamente semelhantes à interface do
-Conselho Estadual da Criança e do Adolescente.
-● RNF07: O sistema deve suportar a inserção de um número arbitrário (grande) de dados.
+● RNF05: O sistema deve possuir documentação no repositório, em português, incluindo stack e versões das ferramentas, justificativas das decisões técnicas principais, instruções de execução do protótipo e matriz de rastreabilidade requisito.
+● RNF06:A interface do sistema deve manter consistência visual e de navegação com o site institucional do Conselho Estadual da Criança e do Adolescente do Paraná (https://www.cedca.pr.gov.br/), reproduzindo no mínimo: paleta de cores e tipografia institucionais e nomenclatura e ícones compatíveis com o vocabulário já usado pelo Conselho.
+● RNF07: O sistema deve demonstrar suporte a um dataset de referência que represente o Plano Decenal em escala estadual (mínimo: dados dos 23 compromissos, hierarquia completa de exemplo e histórico simulado de 10 anos), com importação por planilha e consultas (busca/filtro) funcionais sem falha de integridade.
 ● RNF08: O sistema deve encerrar a sessão do usuário automáticamente após 30
 minutos de inatividade.
