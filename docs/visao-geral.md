@@ -1,3 +1,3 @@
 # Visão Geral
 
-Deve cobrir bem o objetivo do projeto
+O **Plano Decenal dos Direitos da Criança e do Adolescente** é uma diretriz do governo brasileiro focada em implementar políticas públicas de proteção, promoção e defesa da infânfia e da juventude. O problema é que, atualmente, não há uma maneira eficiente de monitorar o cumprimento dessas metas. Dessa forma, surge a necessidade de um **sistema de monitoramento** dinâmico e acessível, tanto para a população quanto para membros de secretarias do governo estadual, que permita o acompanhamento do cumprimento dos compromissos decenais.

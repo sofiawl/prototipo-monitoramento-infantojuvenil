@@ -37,7 +37,7 @@ Obs: Toda etapa e tudo o que for feito deverá ser escrito no documento da seman
 
 
 ## Nadia
-- [ ] Visão geral
+- [x] Visão geral
 - [ ] História de usuário
 - [ ] Casos de uso
 

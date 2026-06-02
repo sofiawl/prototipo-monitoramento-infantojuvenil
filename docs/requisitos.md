@@ -25,7 +25,7 @@
 - RF24: Controle de acesso por perfil (quem pode visualizar ou alterar)
 - RF25: Validação de formato dos dados inseridos (interface e planilha)
 - RF26: Interface em português e espanhol
-- RF27: Área dedicada a crianças e adolescentes (informação e ajuda/socorro
+- RF27: Área dedicada a crianças e adolescentes (informação e ajuda/socorro)
 
 
 ## Requisitos Funcionais
