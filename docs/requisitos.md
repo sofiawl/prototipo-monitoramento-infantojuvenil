@@ -19,6 +19,8 @@
     - Antes: O sistema deve suportar a inserção de um número arbitrário (grande) de dados.
     - Depois: O protótipo deve demonstrar suporte a um dataset de referência que represente o Plano Decenal em escala estadual (mínimo: dados dos 23 compromissos, hierarquia completa de exemplo e histórico simulado de 10 anos), com importação por planilha e consultas (busca/filtro) funcionais sem falha de integridade
     - Porque a mudança foi necessária? “Número arbitrário (grande)” não define limites nem como validar
+- RF15: 
+  - Foi excluído porque estava duplicado (FN09). Depois alterado os números restantes para manter o padrão em ordem
 **Inclusões**
 - RF24: Controle de acesso por perfil (quem pode visualizar ou alterar)
 - RF25: Validação de formato dos dados inseridos (interface e planilha)
@@ -52,24 +54,23 @@ compromissos, objetivos, etc via interface gráfica.
 ● RF13: O sistema deve registrar e armazenar ações dos usuários que podem alterar o
 estado do sistema.
 ● RF14: O sistema deve aplicar medidas de segurança nos dados inseridos.
-● RF15: O sistema deve possuir um painel de administrador, para elevar ou reduzir
 permissões de usuários e outras funcionalidades por usuários autorizados.
-● RF16: O sistema deve exibir gráficos de progresso para cada indicador.
-● RF17: O sistema deve permitir que o usuário filtre gráficos de indicadores por ano.
-● RF18: O sistema deve diferenciar visualmente indicadores por seu respectivo tipo.
-● RF19: O sistema deve exibir o Responsável Principal e os Colaboradores para cada
+● RF15: O sistema deve exibir gráficos de progresso para cada indicador.
+● RF16: O sistema deve permitir que o usuário filtre gráficos de indicadores por ano.
+● RF17: O sistema deve diferenciar visualmente indicadores por seu respectivo tipo.
+● RF18: O sistema deve exibir o Responsável Principal e os Colaboradores para cada
 Ação.
-● RF20: O sistema deve permitir a existência de diferentes usuários (no mínimo três
+● RF19: O sistema deve permitir a existência de diferentes usuários (no mínimo três
 camadas: SEDEF, Conselho Estadual/Secretárias, público geral).
-● RF21: O sistema deve permitir o carregamento de dados por meio de planilhas.
-● RF22: O sistema deve permitir a alteração de dados por meio da interface do
+● RF20: O sistema deve permitir o carregamento de dados por meio de planilhas.
+● RF21: O sistema deve permitir a alteração de dados por meio da interface do
 sistema.
-● RF23: O sistema deve utilizar Tokens JWT para aumentar a segurança.
-● RF24: O sistema deve controlar, por perfil de usuário (SEDEF, Conselho/Secretarias, público geral), o que cada um pode visualizar e o que pode alterar, bloqueando edição para perfis sem permissão.
-● RF25: O sistema deve validar formato e campos obrigatórios dos dados inseridos pela interface e por planilha (RF21), recusando registros inválidos e informando o erro ao usuário.
-● RF26: O sistema deve permitir alternar o idioma da interface entre português e espanhol.
-● RF27: O sistema deve disponibilizar área para crianças e adolescentes com explicação acessível do Compromisso Decenal
-● RF28: O sistema deve disponibilizar informações de “Procure ajuda” e informações de canais de acolhimento e socorro para crianças e adolescentes.
+● RF22: O sistema deve utilizar Tokens JWT para aumentar a segurança.
+● RF23: O sistema deve controlar, por perfil de usuário (SEDEF, Conselho/Secretarias, público geral), o que cada um pode visualizar e o que pode alterar, bloqueando edição para perfis sem permissão.
+● RF24: O sistema deve validar formato e campos obrigatórios dos dados inseridos pela interface e por planilha (RF21), recusando registros inválidos e informando o erro ao usuário.
+● RF25: O sistema deve permitir alternar o idioma da interface entre português e espanhol.
+● RF26: O sistema deve disponibilizar área para crianças e adolescentes com explicação acessível do Compromisso Decenal
+● RF27: O sistema deve disponibilizar informações de “Procure ajuda” e informações de canais de acolhimento e socorro para crianças e adolescentes.
 
 ## Requisitos Não Funcionais
 ● RNF01: A interface deve ser acessível conforme os princípios do Design Universal,
