@@ -42,7 +42,7 @@ Obs: Toda etapa e tudo o que for feito deverá ser escrito no documento da seman
 - [ ] Casos de uso
 
 ## Luiza
-- [ ] Revisão requisitos
-- [ ] Planejamento conversa com cliente
+- [x] Revisão requisitos
+- [x] Planejamento conversa com cliente
 - [ ] Regras de negócio
 
