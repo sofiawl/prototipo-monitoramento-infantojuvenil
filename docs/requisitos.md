@@ -19,8 +19,49 @@
     - Antes: O sistema deve suportar a inserção de um número arbitrário (grande) de dados.
     - Depois: O protótipo deve demonstrar suporte a um dataset de referência que represente o Plano Decenal em escala estadual (mínimo: dados dos 23 compromissos, hierarquia completa de exemplo e histórico simulado de 10 anos), com importação por planilha e consultas (busca/filtro) funcionais sem falha de integridade
     - Porque a mudança foi necessária? “Número arbitrário (grande)” não define limites nem como validar
+- RF02:
+    - Antes: O sistema deve permitir a visualização hierárquica de: Objetivo ➔ Linhas de Ação ➔ Tarefas
+    - Depois: O sistema deve permitir que o usuário visualize a estrutura completa do Plano Decenal de forma hierárquica, exibindo os níveis Problema Público → Compromisso → Objetivo → Linha de Ação → Tarefa, preservando o vínculo de cada item ao seu nível superior. 
+    - Porque a mudança foi necessária ? A versão original omitia os níveis Problema Público e Compromisso, ficando incompleta frente à cadeia hierárquica exigida no enunciado; também não especificava a regra de vínculo entre níveis.
+- RF03:
+    - Antes: O sistema deve permitir o monitoramento contínuo das tarefas/indicadores (ex. percentual concluído, status: não iniciada, em andamento, concluída).
+    - Depois: O sistema deve permitir o monitoramento contínuo do progresso, exibindo o status das tarefas (não iniciada, em andamento, concluída) e o valor atual dos indicadores.
+    - Por que a mudança foi necessária? A versão original agrupava tarefas e indicadores num mesmo "(ex...)", sem deixar claro que cada um se mede de forma distinta. A nova versão separa os dois comportamentos: tarefa tem status (estado discreto) e indicador tem valor (medida numérica).
+- RF07:
+    - Antes: O sistema deve mostrar quando foi feita a última atualização dos dados.
+    - Depois: O sistema deve exibir, junto a cada item monitorado, a data e a hora de sua última atualização.
+    - Por que a mudança foi necessária? A versão original não definia a granularidade ("dados" de quê), o que a fazia parecer sobreposta ao RF08. A nova versão deixa claro que o RF07 é o carimbo de última atualização exibido por item, distinto do histórico de conteúdo (RF08) e da auditoria de ações (RF13)
+- RF08:
+    - Antes: O sistema deve manter um histórico de todas as atualizações feitas em uma tarefa, permitindo ver a evolução.
+    - Depois: O sistema deve manter e exibir o histórico de atualizações de cada tarefa, registrando, para cada alteração, a data, o conteúdo anterior e o novo conteúdo, permitindo acompanhar a evolução ao longo do tempo.
+    - Por que a mudança foi necessária? A versão original não especificava o que cada entrada do histórico contém. A nova versão define o conteúdo registrado e delimita o escopo do requisito. 
+- RF09:
+    - Antes: O sistema deve possuir um painel de administrador, para elevar ou reduzir permissões de usuários e outras funcionalidades por usuários autorizados.
+    - Depois: O sistema deve disponibilizar um painel de administração que permita a usuários autorizados gerenciar contas de usuário e atribuir ou alterar seus perfis de acesso (SEDEF, Conselho/Secretarias, público geral).
+    - Por que a mudança foi necessária? A expressão "e outras funcionalidades" era vaga e não verificável. A nova versão delimita o que o painel faz (gerenciar contas e perfis) e esclarece que o RF09 trata da administração das permissões.
+- RF11:
+    - Antes: O sistema deve possuir um login de usuários.
+    - Depois: O sistema deve permitir que usuários cadastrados se autentiquem por meio de credenciais (identificador e senha), concedendo acesso apenas quando as credenciais forem válidas e exibindo mensagem de erro quando forem inválidas.
+    - Por que a mudança foi necessária ? A versão original apenas afirmava a existência de login, sem definir as credenciais usadas, o comportamento em caso de sucesso/falha e nem critério de verificação.
+- RF12:
+  - Antes: O sistema deve fornecer a possibilidade de inserção de problemas, compromissos, objetivos, etc via interface gráfica.
+  - Depois: O sistema deve permitir, via interface gráfica, a inserção de novos registros de problemas públicos, compromissos, objetivos, linhas de ação e tarefas.
+  - Por que a mudança foi necessária? O "etc" deixava a lista de entidades aberta e não verificável. A nova versão fecha a lista com base na hierarquia do Plano Decenal e deixa explícito que o RF12 trata da criação de registros.
+- RF13:
+    - Antes: O sistema deve registrar e armazenar ações dos usuários que podem alterar o estado do sistema.
+    - Depois:  O sistema deve manter um registro de auditoria das ações que alteram o estado do sistema, armazenando, para cada ação, o usuário responsável, o tipo de ação realizada, a data e a hora.
+    - Por que a mudança foi necessária ? A versão original era vaga sobre o que se registra ("ações que podem alterar o estado"), sem indicar quais dados o registro guarda nem como verificá-lo. A nova versão especifica o conteúdo do log (usuário, ação, data/hora) e o caracteriza como auditoria, distinguindo-o do RF08 (histórico de conteúdo da tarefa) e do RF07 (data da última atualização).
+- RF14:
+    - Antes: O sistema deve aplicar medidas de segurança nos dados inseridos.
+    - Depois: O sistema deve proteger os dados inseridos contra acesso não autorizado, armazenando credenciais de forma criptografada (hash) e trafegando os dados por conexão segura (HTTPS), de modo que dados sensíveis não sejam expostos em texto puro.
+    - Por que a mudança foi necessária? "Medidas de segurança" era vago e não verificável, a versão revisada especifica mecanismos concretos e delimita o escopo do RF14 para não se sobrepor a RF23 (JWT), RF24 (validação) e RF13 (registro de ações).
 - RF15: 
-  - Foi excluído porque estava duplicado (FN09). Depois alterado os números restantes para manter o padrão em ordem
+  - Foi excluído porque estava duplicado (RF09). Depois alterado os números restantes para manter o padrão em ordem
+- RF21:
+  - Antes: O sistema deve permitir a alteração de dados por meio da interface do sistema.
+  - Depois: O sistema deve permitir, via interface gráfica, a alteração de registros já existentes de problemas públicos, compromissos, objetivos, linhas de ação e tarefas.
+  - Por que a mudança foi necessária? "Alteração de dados" era genérico. A nova versão especifica quais registros podem ser editados e delimita o escopo do RF21 como edição do que já existe, distinguindo-o do RF12 (criação). Ambos estão sujeitos à validação do RF24.
+
 **Inclusões**
 - RF24: Controle de acesso por perfil (quem pode visualizar ou alterar)
 - RF25: Validação de formato dos dados inseridos (interface e planilha)
@@ -29,61 +70,61 @@
 
 
 ## Requisitos Funcionais
-● RF01: O sistema deve permitir que o usuário visualize os 23 problemas públicos, cada
-um vinculado a um Compromisso Decenal da criança e adolescentel.
-● RF02: O sistema deve permitir a visualização hierárquica de: Objetivo ➔ Linhas de Ação
-➔ Tarefas
-● RF03: O sistema deve permitir o monitoramento contínuo das tarefas/indicadores (ex.
-percentual concluído, status: não iniciada, em andamento, concluída)
-● RF04: O sistema deve permitir que o usuário faça buscas no sistema para a exibição
+- RF01: O sistema deve permitir que o usuário visualize os 23 problemas públicos, cada
+um vinculado a um Compromisso Decenal da criança e adolescente.
+- RF02: O sistema deve permitir que o usuário visualize a estrutura completa do Plano Decenal de forma 
+hierárquica, exibindo os níveis Problema Público → Compromisso → Objetivo → Linha de Ação → Tarefa, 
+preservando o vínculo de cada item ao seu nível superior. 
+- RF03: O sistema deve permitir o monitoramento contínuo do progresso, exibindo o status das tarefas (não iniciada, em andamento, concluída) e o valor atual dos indicadores.
+- RF04: O sistema deve permitir que o usuário faça buscas no sistema para a exibição
 das informações correspondentes. (palavra-chave, Responsável, eixos do Plano
 Decenal, Compromisso)
-● RF05: O sistema deve permitir que o usuário aplique filtros (ex. compromisso, indicador,
+- RF05: O sistema deve permitir que o usuário aplique filtros (ex. compromisso, indicador,
 período de tempo, responsável) para a exibição das informações do sistema.
-● RF06: O sistema deve disponibilizar funcionalidade de exportação (Excel, CSV, PDF)
+- RF06: O sistema deve disponibilizar funcionalidade de exportação (Excel, CSV, PDF)
 dos dados de monitoramento de um conjunto filtrado.
-● RF07: O sistema deve mostrar quando foi feita a última atualização dos dados
-● RF08: O sistema deve manter um histórico de todas as atualizações feitas em uma
-tarefa, permitindo ver a evolução.
-● RF09: O sistema deve possuir um painel de administrador, para elevar ou reduzir
-permissões de usuários e outras funcionalidades por usuários autorizados.
-● RF10: O sistema deve fornecer um modo de alto contraste para os usuários.
-● RF11: O sistema deve possuir um login de usuários.
-● RF12: O sistema deve fornecer a possibilidade de inserção de problemas,
-compromissos, objetivos, etc via interface gráfica.
-● RF13: O sistema deve registrar e armazenar ações dos usuários que podem alterar o
-estado do sistema.
-● RF14: O sistema deve aplicar medidas de segurança nos dados inseridos.
-permissões de usuários e outras funcionalidades por usuários autorizados.
-● RF15: O sistema deve exibir gráficos de progresso para cada indicador.
-● RF16: O sistema deve permitir que o usuário filtre gráficos de indicadores por ano.
-● RF17: O sistema deve diferenciar visualmente indicadores por seu respectivo tipo.
-● RF18: O sistema deve exibir o Responsável Principal e os Colaboradores para cada
-Ação.
-● RF19: O sistema deve permitir a existência de diferentes usuários (no mínimo três
-camadas: SEDEF, Conselho Estadual/Secretárias, público geral).
-● RF20: O sistema deve permitir o carregamento de dados por meio de planilhas.
-● RF21: O sistema deve permitir a alteração de dados por meio da interface do
-sistema.
-● RF22: O sistema deve utilizar Tokens JWT para aumentar a segurança.
-● RF23: O sistema deve controlar, por perfil de usuário (SEDEF, Conselho/Secretarias, público geral), o que cada um pode visualizar e o que pode alterar, bloqueando edição para perfis sem permissão.
-● RF24: O sistema deve validar formato e campos obrigatórios dos dados inseridos pela interface e por planilha (RF21), recusando registros inválidos e informando o erro ao usuário.
-● RF25: O sistema deve permitir alternar o idioma da interface entre português e espanhol.
-● RF26: O sistema deve disponibilizar área para crianças e adolescentes com explicação acessível do Compromisso Decenal
-● RF27: O sistema deve disponibilizar informações de “Procure ajuda” e informações de canais de acolhimento e socorro para crianças e adolescentes.
+- RF07: O sistema deve exibir, junto a cada item monitorado, a data e a hora de sua última atualização.
+- RF08: O sistema deve manter e exibir o histórico de atualizações de cada tarefa, registrando, para cada alteração, a data, o conteúdo anterior e o novo conteúdo, permitindo acompanhar a evolução ao longo do tempo.
+- RF09: O sistema deve disponibilizar um painel de administração que permita a usuários autorizados gerenciar contas de usuário e atribuir ou alterar seus perfis de acesso (SEDEF, Conselho/Secretarias, público geral).
+- RF10: O sistema deve fornecer um modo de alto contraste para os usuários.
+- RF11: O sistema deve permitir que usuários cadastrados se autentiquem por meio de credenciais 
+(identificador e senha), concedendo acesso apenas quando as credenciais forem válidas e exibindo
+ mensagem de erro quando forem inválidas.
+- RF12: O sistema deve permitir, via interface gráfica, a inserção de novos registros de problemas públicos, compromissos, objetivos, linhas de ação e tarefas.
+- RF13: O sistema deve manter um registro de auditoria das ações que alteram o estado do sistema, armazenando, para cada ação, o usuário responsável, o tipo de ação realizada, a data e a hora.
+- RF14: O sistema deve proteger os dados inseridos contra acesso não autorizado, armazenando credenciais de forma 
+criptografada (hash) e trafegando os dados por conexão segura (HTTPS), de modo que dados sensíveis não sejam expostos em texto puro.
+- RF15: O sistema deve exibir gráficos de progresso para cada indicador.
+- RF16: O sistema deve permitir que o usuário filtre gráficos de indicadores por ano.
+- RF17: O sistema deve diferenciar visualmente indicadores por seu respectivo tipo.
+- RF18: O sistema deve exibir o Responsável Principal e os Colaboradores para cada Ação.
+- RF19: O sistema deve permitir a existência de diferentes usuários (no mínimo três
+camadas: SEDEF, Conselho Estadual/Secretarias, público geral).
+- RF20: O sistema deve permitir o carregamento de dados por meio de planilhas.
+- RF21: O sistema deve permitir, via interface gráfica, a alteração de registros já existentes de problemas públicos, compromissos, objetivos, linhas de ação e tarefas.
+- RF22: O sistema deve utilizar Tokens JWT para aumentar a segurança.
+- RF23: O sistema deve controlar, por perfil de usuário (SEDEF, Conselho/Secretarias, público geral), o que cada um pode visualizar e o que pode alterar, bloqueando edição para perfis sem permissão.
+- RF24: O sistema deve validar formato e campos obrigatórios dos dados inseridos pela interface e por planilha (RF21), recusando registros inválidos e informando o erro ao usuário.
+- RF25: O sistema deve permitir alternar o idioma da interface entre português e espanhol.
+- RF26: O sistema deve disponibilizar área para crianças e adolescentes com explicação acessível dos Compromissos Decenais.
+- RF27: O sistema deve disponibilizar informações de “Procure ajuda” e informações de canais de acolhimento e socorro para crianças e adolescentes.
 
 ## Requisitos Não Funcionais
-● RNF01: A interface deve ser acessível conforme os princípios do Design Universal,
+- RNF01: A interface deve ser acessível conforme os princípios do Design Universal,
 incluindo contraste adequado, configuração de tamanho da fonte e suporte a leitores de
 tela.
-● RNF02: O sistema deve ser responsivo (adequado para desktop, tablet e dispositivos
+- RNF02: O sistema deve ser responsivo (adequado para desktop, tablet e dispositivos
 móveis).
-● RNF03: O sistema deve ter capacidade de armazenamento para guardar dados de pelo
+- RNF03: O sistema deve ter capacidade de armazenamento para guardar dados de pelo
 menos 10 anos.
-● RNF04: O sistema deve garantir a integridade dos dados exportados (Excel/PDF/CSV),
+- RNF04: O sistema deve garantir a integridade dos dados exportados (Excel/PDF/CSV),
 sem perda de informações ou formatações incorretas.
-● RNF05: O sistema deve possuir documentação no repositório, em português, incluindo stack e versões das ferramentas, justificativas das decisões técnicas principais, instruções de execução do protótipo e matriz de rastreabilidade requisito.
-● RNF06:A interface do sistema deve manter consistência visual e de navegação com o site institucional do Conselho Estadual da Criança e do Adolescente do Paraná (https://www.cedca.pr.gov.br/), reproduzindo no mínimo: paleta de cores e tipografia institucionais e nomenclatura e ícones compatíveis com o vocabulário já usado pelo Conselho.
-● RNF07: O sistema deve demonstrar suporte a um dataset de referência que represente o Plano Decenal em escala estadual (mínimo: dados dos 23 compromissos, hierarquia completa de exemplo e histórico simulado de 10 anos), com importação por planilha e consultas (busca/filtro) funcionais sem falha de integridade.
-● RNF08: O sistema deve encerrar a sessão do usuário automáticamente após 30
+- RNF05: O sistema deve possuir documentação no repositório, em português, incluindo stack e versões das ferramentas, justificativas das decisões técnicas principais, instruções de execução do protótipo e matriz de rastreabilidade.
+- RNF06: A interface do sistema deve manter consistência visual e de navegação com o site institucional do Conselho Estadual da Criança e do Adolescente do Paraná (https://www.cedca.pr.gov.br/), reproduzindo no mínimo: paleta de cores e tipografia institucionais e nomenclatura e ícones compatíveis com o vocabulário já usado pelo Conselho.
+- RNF07: O sistema deve demonstrar suporte a um dataset de referência que represente o Plano Decenal em escala estadual (mínimo: dados dos 23 compromissos, hierarquia completa de exemplo e histórico simulado de 10 anos), com importação por planilha e consultas (busca/filtro) funcionais sem falha de integridade.
+- RNF08: O sistema deve encerrar a sessão do usuário automáticamente após 30
 minutos de inatividade.
+
+### * Nota de consistência 
+- RF07, RF08 e RF13: os três tratam de mudanças ao longo do tempo, mas não se sobrepõem: o RF07 mostra quando foi a última atualização de um item, o RF08 mostra o que mudou no conteúdo de uma tarefa (valor anterior e novo), e o RF13 registra quem realizou cada ação, para fins de auditoria. Cada um cumpre um propósito distinto e se vincula a telas e casos de uso diferentes.
+- RF09 e RF23: Não se sobrepõem. O RF09 é a administração das permissões (onde o administrador define quem tem qual perfil); o RF23 é a aplicação dessas permissões (o sistema bloqueando ou liberando ações conforme o perfil de cada um).
