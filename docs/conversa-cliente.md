@@ -17,7 +17,7 @@ Questões em aberto · [requisitos.md](./requisitos.md)
 - **0.3 (D)** Imaginando o sistema pronto e em uso: como você descreveria, num parágrafo, o que ele faz pelo Conselho no dia a dia?
     - *Captura a visão geral e a expectativa do cliente, com as palavras dele.*
 
-## Bloco 1 — Contexto e Objetivos (O "Porquê")
+## Bloco 1 — Contexto e Objetivos
 *Meta: entender a dor real que motivou o projeto e o que significa sucesso para o cliente.*
 
 - **1.1 (D)** Como é feito hoje o acompanhamento do Plano Decenal? Me conta um pouco como funciona esse processo no dia a dia.
@@ -28,7 +28,7 @@ Questões em aberto · [requisitos.md](./requisitos.md)
 - **1.5 (D)** Quem, além de vocês aqui, vai sentir o impacto desse sistema no trabalho diário?
 - *Se o cliente mencionar uma "solução" (ex.: "queremos um dashboard"), perguntar:* "Entendido. Quando vocês tiverem esse painel em mãos, qual é a primeira decisão ou ação que vão tomar com base nele?"
 
-## Bloco 2 — Pessoas e Processos (O "Como")
+## Bloco 2 — Pessoas e Processos 
 *Meta: mapear quem usa, como trabalham hoje e onde estão as gambiarras e exceções.*
 
 ### Quem usa o sistema
@@ -57,7 +57,7 @@ Questões em aberto · [requisitos.md](./requisitos.md)
 - **2.13 (D)** O Plano é organizado ou acompanhado por município/região? Vocês precisam consultar e comparar os dados por localidade?
     - *Os exemplos da disciplina citam dados "por município"/regionais — pode ser uma dimensão ausente nos nossos requisitos.*
 
-## Bloco 3 — Restrições e Fronteiras (O "Até onde")
+## Bloco 3 — Restrições e Fronteiras
 *Meta: identificar regras de negócio, limites de escopo, normas e dependências externas.*
 
 ### Perfis de acesso e dados sensíveis
