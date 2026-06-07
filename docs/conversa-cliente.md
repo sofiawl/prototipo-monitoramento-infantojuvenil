@@ -56,26 +56,32 @@ Questões em aberto · [requisitos.md](./requisitos.md)
     - *Valida o RNF03 (10 anos) — veio do cliente ou foi suposição nossa? Também dimensiona o volume total (RNF07).*
 - **2.13 (D)** O Plano é organizado ou acompanhado por município/região? Vocês precisam consultar e comparar os dados por localidade?
     - *Os exemplos da disciplina citam dados "por município"/regionais — pode ser uma dimensão ausente nos nossos requisitos.*
+- **2.14 (D)** Um mesmo compromisso pode ter metas ou valores diferentes dependendo do município, ou a meta é estadual e única?
+    - *Define se a dimensão municipal afeta a modelagem de metas/indicadores (RF03/RF17).*
 
 ## Bloco 3 — Restrições e Fronteiras
 *Meta: identificar regras de negócio, limites de escopo, normas e dependências externas.*
 
+
+### Norma que institui o Plano e exigências de transparência
+- **3.1 (D)** Existe uma lei, decreto ou resolução que institui o Plano Decenal? Ela diz algo sobre como o acompanhamento precisa ser divulgado ou prestado contas — por exemplo, dados que têm de ser públicos, periodicidade de relatórios ou prazos de publicação?
+- **3.2 (V)** Esse andamento é prestado a algum órgão de controle (Ministério Público, Tribunal de Contas, algum conselho superior)? Se sim, eles cobram algum formato ou conteúdo específico que o sistema teria que produzir?
+    - *Pode transformar o RF06 (exportação) numa exigência com formato fixo, não uma conveniência.*
+
 ### Perfis de acesso e dados sensíveis
-- **3.1 (V)** Para o perfil público, o que está liberado para visualização e o que está restrito?
+- **3.4 (V)** Para o perfil público, o que está liberado para visualização e o que está restrito?
     - *Valida o controle de acesso por perfil (RF23).*
-- **3.2 (V)** Quem vai ser o administrador do sistema? Quem gerencia outros usuários, cria contas, define permissões?
+- **3.5 (V)** Quem vai ser o administrador do sistema? Quem gerencia outros usuários, cria contas, define permissões?
     - *Valida o RF09 e revela quem cadastra os usuários (lacuna: não há requisito de cadastro de usuário).*
 
 ### Histórico, transparência e rastreio de mudanças
 - **3.3 (V)** Vocês precisam conseguir ver como uma tarefa ou indicador evoluiu ao longo do tempo — o que era antes e o que mudou?
     - *Valida o RF08 (histórico de conteúdo). Confirma se é necessidade real ou suposição nossa.*
-- **3.4 (V)** É importante saber *quem* fez cada alteração no sistema (registro de autoria)? Isso é uma exigência de transparência, prestação de contas ou de alguma norma?
-    - *Valida o RF13 (auditoria). Se não houver exigência, reavaliar o esforço nesse requisito.*
 
 ### Exportação e uso dos dados
-- **3.5 (D)** Quando vocês precisam tirar dados do sistema (relatório, planilha), pra que isso serve depois? Quem recebe e o que faz com esse material?
+- **3.4 (D)** Quando vocês precisam tirar dados do sistema (relatório, planilha), pra que isso serve depois? Quem recebe e o que faz com esse material?
     - *Necessidade por trás do RF06 — pergunta o uso, não o formato. Pode revelar quais formatos (Excel/CSV/PDF) importam de verdade.*
-- **3.6 (D)** Quando vocês precisam encontrar uma tarefa ou indicador específico hoje, como fazem essa busca? Por quais critérios costumam procurar ou agrupar?
+- **3.5 (D)** Quando vocês precisam encontrar uma tarefa ou indicador específico hoje, como fazem essa busca? Por quais critérios costumam procurar ou agrupar?
     - *Revela os filtros que importam de verdade (RF04/RF05) — pode confirmar ou substituir os que assumimos.*
 
 ### Regras e validações
@@ -83,8 +89,6 @@ Questões em aberto · [requisitos.md](./requisitos.md)
     - *Alimenta o RF03 (status de tarefa vs. valor de indicador) e o RF17 (tipos de indicador).*
 - **3.8 (D)** Existe alguma regra que determina quando uma tarefa muda de status? (ex.: só pode ser "concluída" se tiver indicador preenchido?)
 - **3.9 (D)** E se alguma regra não se aplicar em determinado caso — existe exceção a alguma dessas regras?
-- **3.10 (D)** O protótipo deve cobrir o Plano inteiro no estado, ou começa com um piloto menor?
-
 
 ### Escopo e limites
 - **3.10 (D)** Tem alguma funcionalidade ou área que, por algum motivo, está definitivamente fora do escopo deste projeto?
@@ -112,4 +116,3 @@ Questões em aberto · [requisitos.md](./requisitos.md)
     - *Revela riscos e resistências que o cliente não verbaliza espontaneamente.*
 
  Agradecer, confirmar como será o contato para dúvidas pontuais e combinar o próximo passo.
-
