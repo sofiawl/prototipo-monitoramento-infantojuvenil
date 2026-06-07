@@ -40,7 +40,7 @@ Uma regra de negócio descreve uma **condição ou restrição do domínio** (o 
 | Exportar dados do conjunto acessível (RF06)        | ✔ (público)   | ✔                    | ✔             |
 | Criar/editar registros do Plano (RF12, RF21)       | ✘             | ✔                    | ✔             |
 | Importar dados por planilha (RF20)                 | ✘             | ✔                    | ✔             |
-| Aprovar conclusão de Tarefa (RN06) **(P)**         | ✘             | ✘                    | ✔             |
+| Aprovar conclusão de Tarefa (RN06)                 | ✘             | ✘                    | ✔             |
 | Gerenciar contas e atribuir perfis (RF09)          | ✘             | ✘                    | ✔             |
 
 ## 5. Proteção de dados e acesso autorizado
