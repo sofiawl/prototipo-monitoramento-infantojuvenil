@@ -44,5 +44,5 @@ Obs: Toda etapa e tudo o que for feito deverá ser escrito no documento da seman
 ## Luiza
 - [x] Revisão requisitos
 - [x] Planejamento conversa com cliente
-- [ ] Regras de negócio
+- [x] Regras de negócio
 
