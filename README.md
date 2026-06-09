@@ -1,5 +1,15 @@
 # Prototipo e documentação viva projeto Monitoramento Infantojuvenil
 
+Para visualizar o protótipo funcional do sistema, execute no terminal o seguinte código:
+
+``` bash
+cd prototipo/sedef-test
+npm install
+npm run dev
+```
+
+
+
 [Descrição do Trabalho](https://moodle.c3sl.ufpr.br/pluginfile.php/239362/mod_resource/content/0/CI160___Engenharia_de_Requisitos%20%2857%29.pdf)
 
 [Levantamento de Requisitos fornecido](https://moodle.c3sl.ufpr.br/pluginfile.php/239367/mod_resource/content/0/Requisitos%20plano%20decenal%20-%20Resultado%20Final.pdf)
