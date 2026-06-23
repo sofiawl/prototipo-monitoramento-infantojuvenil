@@ -15,10 +15,14 @@ function gaussian(x: number, mean: number, sigma: number) {
 function MonitoramentoBars() {
   const svgWidth = 1800
   const svgHeight = 500
-
+  // Configuráveis: ajuste aqui para controlar espaçamento e arredondamento
   const numBars = 15 // quantas barras gerar
+  // fraction of each slot used by the bar (0..1). Lower => more gap between bars
+  const barFillRatio = 0.90 // 0.9 = bar uses 90% of slot, 0.7 = more gap
+  const cornerRadius = 6 // raio de arredondamento (px no viewBox units)
+
   const gap = svgWidth / numBars
-  const barWidth = Math.max( Math.round(gap * 0.90), 20 ) // um pouco mais grossas
+  const barWidth = Math.max(Math.round(gap * barFillRatio), 20) // largura da barra
   const mean = (numBars - 1) / 2
   const sigma = numBars / 6 // controla a "largura" da curva normal
   const minHeight = svgHeight * 0.18
@@ -28,7 +32,7 @@ function MonitoramentoBars() {
     const x = i * gap + (gap - barWidth) / 2
     const g = gaussian(i, mean, sigma) // 0..1 (aprox)
     const height = Math.round(minHeight + g * maxExtra)
-    const opacity = Math.max(0.18, 0.25 + g * 0.5) // mais alta no centro
+    const opacity = Math.max(0.10, 0.1 + g * 0.4) // mais alta no centro
     return {
       x,
       width: barWidth,
@@ -54,7 +58,7 @@ function MonitoramentoBars() {
           height={bar.height}
           fill="white"
           fillOpacity={bar.opacity}
-          rx={6}
+          rx={cornerRadius}
         />
       ))}
     </svg>

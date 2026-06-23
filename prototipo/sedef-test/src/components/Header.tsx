@@ -3,14 +3,14 @@ import { Search } from 'lucide-react'
 import { IoContrast } from 'react-icons/io5'
 import { FaLock } from "react-icons/fa";
 import { BR } from 'country-flag-icons/react/3x2'
+import { Link, useLocation } from 'react-router-dom'
 
-type NavLink = { label: string }
 
-const navLinks: NavLink[] = [
-    { label: 'Início' },
-    { label: 'Plano Decenal' },
-    { label: 'Monitoramento' },
-    { label: 'Sobre' },
+const navLinks = [
+    { label: 'Início', path: '/' },
+    { label: 'Plano Decenal', path: '/plano-decenal' },
+    { label: 'Monitoramento', path: '/monitoramento' },
+    { label: 'Sobre', path: '/sobre' },
 ]
 
 function Header() {
@@ -35,7 +35,7 @@ function Header() {
     }
 
     return (
-        <header className='w-full bg-white shadow-lg'>
+        <header className='w-full bg-white shadow-lg sticky top-0 z-50'>
 
             {/* barra superior */}
             <div className='max-w-7xl mx-auto px-6 py-3 flex items-center gap-4'>
@@ -95,7 +95,7 @@ function Header() {
                     </button>
 
                     {/* Login */}
-                    <button className="flex items-center gap-3 bg-blue-500 text-white font-bold text-md ml-2 px-3 py-1.5 rounded-lg hover:bg-blue-400 transition-colors">
+                    <button className="flex items-center gap-3 bg-sky-500 text-white font-bold text-md ml-2 px-3 py-1.5 rounded-lg hover:bg-sky-400 transition-colors">
                         <FaLock />
                         Acessar
                     </button>
@@ -103,13 +103,14 @@ function Header() {
             </div>
 
             {/* barra inferior */}
-            <div className='w-full bg-blue-500'>
+            <div className='w-full bg-sky-500'>
                 <nav className='max-w-3xl mx-auto px-6 flex items-center justify-between gap-1'>
                     {navLinks.map(link => {
-                        const isActive = activePage === link.label
+                        const isActive = location.pathname === link.path
                         return (
-                            <button
+                            <Link
                                 key={link.label}
+                                to={link.path}
                                 onClick={() => setActivePage(link.label)}
                                 className={
                                     'px-5 py-3 mt-1 text-md text-white uppercase font-bold ' +
@@ -119,7 +120,7 @@ function Header() {
                                 }
                             >
                                 {link.label}
-                            </button>
+                            </Link>
                         )
                     })}
                 </nav>
