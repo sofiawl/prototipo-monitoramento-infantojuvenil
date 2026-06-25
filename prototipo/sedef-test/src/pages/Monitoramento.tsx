@@ -314,7 +314,11 @@ export default function Monitoramento() {
 
             {temFiltroAplicado && resultados.length > 0 && (
               <div className="flex justify-end">
-                <button className="flex items-center gap-2 bg-sky-400 hover:bg-sky-500 text-white font-bold text-sm uppercase tracking-wide px-5 py-2.5 rounded-md transition-colors">
+                <button
+                  type="button"
+                  title="Funcionalidade ilustrativa: a exportação não está disponível neste protótipo."
+                  className="flex items-center gap-2 bg-sky-400 hover:bg-sky-500 text-white font-bold text-sm uppercase tracking-wide px-5 py-2.5 rounded-md transition-colors"
+                >
                   <Download size={16} />
                   Exportar Dados
                 </button>
