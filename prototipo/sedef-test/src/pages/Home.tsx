@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   Carousel,
   CarouselContent,
@@ -62,11 +63,12 @@ function SectionMonitoramento() {
                 <h2 className="text-6xl font-black text-white uppercase tracking-tight drop-shadow-lg">
                 Monitoramento
                 </h2>
-                <button
+                <Link
+                to="/monitoramento"
                 className="mt-4 bg-blue-500 hover:bg-blue-400 text-white font-bold drop-shadow-lg hover:inset-shadow-blue-500 px-10 py-3 text-base uppercase tracking-widest rounded-lg transition-colors"
                 >
                 Acesse Já
-                </button>
+                </Link>
 
         </div>
 

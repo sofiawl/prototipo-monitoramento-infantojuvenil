@@ -14,6 +14,7 @@ const navLinks = [
 ]
 
 function Header() {
+    const location = useLocation()
     const [activePage, setActivePage] = useState<string>('Início')
     const [fontSize, setFontSize] = useState<number>(100)
     const [highContrast, setHighContrast] = useState<boolean>(false)

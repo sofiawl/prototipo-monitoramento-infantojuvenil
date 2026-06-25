@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Home from './pages/Home'
 import PlanoDecenal from './pages/PlanoDecenal'
+import Monitoramento from './pages/Monitoramento'
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/plano-decenal" element={<PlanoDecenal />} />
+        <Route path="/monitoramento" element={<Monitoramento />} />
       </Routes>
       <Footer />
 
