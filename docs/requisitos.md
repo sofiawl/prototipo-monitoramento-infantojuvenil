@@ -63,9 +63,9 @@
   - Por que a mudança foi necessária? "Alteração de dados" era genérico. A nova versão especifica quais registros podem ser editados e delimita o escopo do RF21 como edição do que já existe, distinguindo-o do RF12 (criação). Ambos estão sujeitos à validação do RF24.
 
 **Inclusões**
-- RF24: Controle de acesso por perfil (quem pode visualizar ou alterar)
-- RF25: Validação de formato dos dados inseridos (interface e planilha)
-- RF26: Interface em português e espanhol
+- RF23: Controle de acesso por perfil (quem pode visualizar ou alterar)
+- RF24: Validação de formato dos dados inseridos (interface e planilha)
+- RF25: Interface em português e espanhol
 - RF27: Área dedicada a crianças e adolescentes (informação e ajuda/socorro)
 
 
