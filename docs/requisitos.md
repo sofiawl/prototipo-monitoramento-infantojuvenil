@@ -27,6 +27,10 @@
     - Antes: O sistema deve permitir o monitoramento contínuo das tarefas/indicadores (ex. percentual concluído, status: não iniciada, em andamento, concluída).
     - Depois: O sistema deve permitir o monitoramento contínuo do progresso, exibindo o status das tarefas (não iniciada, em andamento, concluída) e o valor atual dos indicadores.
     - Por que a mudança foi necessária? A versão original agrupava tarefas e indicadores num mesmo "(ex...)", sem deixar claro que cada um se mede de forma distinta. A nova versão separa os dois comportamentos: tarefa tem status (estado discreto) e indicador tem valor (medida numérica).
+- RF04:
+    - Antes: O sistema deve permitir que o usuário faça buscas no sistema para a exibição das informações correspondentes. (palavra-chave, Responsável, eixos do Plano Decenal, Compromisso)
+    - Depois: Restringido a busca por texto livre (palavra-chave). Os demais critérios (responsável, compromisso, período) são escopo do RF05.
+    - Por que a mudança foi necessária? A versão original listava critérios que se sobrepunham ao RF05 (filtros estruturados), tornando os dois requisitos ambíguos. A separação – texto livre no RF04, seleções predefinidas no RF05 – elimina a sobreposição e deixa claro o que cada requisito exige.
 - RF07:
     - Antes: O sistema deve mostrar quando foi feita a última atualização dos dados.
     - Depois: O sistema deve exibir, junto a cada item monitorado, a data e a hora de sua última atualização.
@@ -54,31 +58,40 @@
 - RF14:
     - Antes: O sistema deve aplicar medidas de segurança nos dados inseridos.
     - Depois: O sistema deve proteger os dados inseridos contra acesso não autorizado, armazenando credenciais de forma criptografada (hash) e trafegando os dados por conexão segura (HTTPS), de modo que dados sensíveis não sejam expostos em texto puro.
-    - Por que a mudança foi necessária? "Medidas de segurança" era vago e não verificável, a versão revisada especifica mecanismos concretos e delimita o escopo do RF14 para não se sobrepor a RF23 (JWT), RF24 (validação) e RF13 (registro de ações).
+    - Por que a mudança foi necessária? "Medidas de segurança" era vago e não verificável, a versão revisada especifica mecanismos concretos e delimita o escopo do RF14 para não se sobrepor a RF22 (tokens de sessão autenticados), RF25 (validação) e RF13 (registro de ações).
 - RF15: 
-  - Foi excluído porque estava duplicado (RF09). Depois alterado os números restantes para manter o padrão em ordem
-- RF21:
-  - Antes: O sistema deve permitir a alteração de dados por meio da interface do sistema.
-  - Depois: O sistema deve permitir, via interface gráfica, a alteração de registros já existentes de problemas públicos, compromissos, objetivos, linhas de ação e tarefas.
-  - Por que a mudança foi necessária? "Alteração de dados" era genérico. A nova versão especifica quais registros podem ser editados e delimita o escopo do RF21 como edição do que já existe, distinguindo-o do RF12 (criação). Ambos estão sujeitos à validação do RF24.
+    - Foi excluído porque estava duplicado (RF09). 
+- RF16:
+    - Antes: O sistema deve exibir gráficos de progresso para cada indicador. (RF17 e RF18 eram requisitos separados)
+    - Depois: RF16 absorve RF17 (filtro por ano) e RF18 (diferenciação visual por tipo) num único requisito.
+    - Por que a mudança foi necessária? RF16, RF17 e RF18 descreviam sub-aspectos da mesma funcionalidade (exibição de gráfico de indicador). Manter três requisitos para uma única tela criava granularidade excessiva e dificultava o mapeamento na matriz de rastreabilidade. 
+- RF17:
+    - Excluído pois fui incorporado ao RF16
+- RF18:
+    - Excluído pois fui incorporado ao RF16
+- RF22:
+    - Antes: O sistema deve permitir a alteração de dados por meio da interface do sistema.
+    - Depois: O sistema deve permitir, via interface gráfica, a alteração de registros já existentes de problemas públicos, compromissos, objetivos, linhas de ação e tarefas.
+    - Por que a mudança foi necessária? "Alteração de dados" era genérico. A nova versão especifica quais registros podem ser editados e delimita o escopo do RF21 como edição do que já existe, distinguindo-o do RF12 (criação). 
+- RF23:
+    - Antes: O sistema deve utilizar Tokens JWT para aumentar a segurança.
+    - Depois: O sistema deve controlar o acesso a rotas e recursos protegidos por meio de tokens de sessão autenticados, garantindo que apenas sessões válidas e vigentes tenham acesso, e que o acesso seja revogado ao encerrar a sessão ou após expiração por inatividade.
+    - Por que a mudança foi necessária? O texto original prescrevia a tecnologia de implementação (JWT) em vez do comportamento esperado do sistema. Requisitos funcionais devem descrever o *quê*, não o *como*.
 
 **Inclusões**
-- RF23: Controle de acesso por perfil (quem pode visualizar ou alterar)
-- RF24: Validação de formato dos dados inseridos (interface e planilha)
-- RF25: Interface em português e espanhol
+- RF24: Controle de acesso por perfil (quem pode visualizar ou alterar)
+- RF25: Validação de formato dos dados inseridos (interface e planilha)
+- RF26: Interface em português e espanhol
 - RF27: Área dedicada a crianças e adolescentes (informação e ajuda/socorro)
+
 
 
 ## Requisitos Funcionais
 - RF01: O sistema deve permitir que o usuário visualize os 23 problemas públicos, cada
 um vinculado a um Compromisso Decenal da criança e adolescente.
-- RF02: O sistema deve permitir que o usuário visualize a estrutura completa do Plano Decenal de forma 
-hierárquica, exibindo os níveis Problema Público → Compromisso → Objetivo → Linha de Ação → Tarefa, 
-preservando o vínculo de cada item ao seu nível superior. 
+- RF02: O sistema deve permitir que o usuário visualize a estrutura completa do Plano Decenal de forma hierárquica, exibindo os níveis Problema Público → Compromisso → Objetivo → Linha de Ação → Tarefa, preservando o vínculo de cada item ao seu nível superior. 
 - RF03: O sistema deve permitir o monitoramento contínuo do progresso, exibindo o status das tarefas (não iniciada, em andamento, concluída) e o valor atual dos indicadores.
-- RF04: O sistema deve permitir que o usuário faça buscas no sistema para a exibição
-das informações correspondentes. (palavra-chave, Responsável, eixos do Plano
-Decenal, Compromisso)
+- RF04: O sistema deve permitir que o usuário faça buscas no sistema por texto livre (palavra-chave) sobre os registros do Plano Decenal, retornando os items cujo conteúdo contenha o termo de buscado. 
 - RF05: O sistema deve permitir que o usuário aplique filtros (ex. compromisso, indicador,
 período de tempo, responsável) para a exibição das informações do sistema.
 - RF06: O sistema deve disponibilizar funcionalidade de exportação (Excel, CSV, PDF)
@@ -94,19 +107,19 @@ dos dados de monitoramento de um conjunto filtrado.
 - RF13: O sistema deve manter um registro de auditoria das ações que alteram o estado do sistema, armazenando, para cada ação, o usuário responsável, o tipo de ação realizada, a data e a hora.
 - RF14: O sistema deve proteger os dados inseridos contra acesso não autorizado, armazenando credenciais de forma 
 criptografada (hash) e trafegando os dados por conexão segura (HTTPS), de modo que dados sensíveis não sejam expostos em texto puro.
-- RF15: O sistema deve exibir gráficos de progresso para cada indicador.
-- RF16: O sistema deve permitir que o usuário filtre gráficos de indicadores por ano.
-- RF17: O sistema deve diferenciar visualmente indicadores por seu respectivo tipo.
-- RF18: O sistema deve exibir o Responsável Principal e os Colaboradores para cada Ação.
-- RF19: O sistema deve permitir a existência de diferentes usuários (no mínimo três
+- RF15: Excluído por duplicação RF09
+- RF16: O sistema deve exibir gráficos de progresso para cada indicador.
+- RF17: Excluído por consolidação com RF16
+- RF18: Excluído por consolidação com RF16
+- RF19: O sistema deve exibir o Responsável Principal e os Colaboradores para cada Ação.
+- RF20: O sistema deve permitir a existência de diferentes usuários (no mínimo três
 camadas: SEDEF, Conselho Estadual/Secretarias, público geral).
-- RF20: O sistema deve permitir o carregamento de dados por meio de planilhas.
-- RF21: O sistema deve permitir, via interface gráfica, a alteração de registros já existentes de problemas públicos, compromissos, objetivos, linhas de ação e tarefas.
-- RF22: O sistema deve utilizar Tokens JWT para aumentar a segurança.
-- RF23: O sistema deve controlar, por perfil de usuário (SEDEF, Conselho/Secretarias, público geral), o que cada um pode visualizar e o que pode alterar, bloqueando edição para perfis sem permissão.
-- RF24: O sistema deve validar formato e campos obrigatórios dos dados inseridos pela interface e por planilha (RF21), recusando registros inválidos e informando o erro ao usuário.
-- RF25: O sistema deve permitir alternar o idioma da interface entre português e espanhol.
-- RF26: O sistema deve disponibilizar área para crianças e adolescentes com explicação acessível dos Compromissos Decenais.
+- RF21: O sistema deve permitir o carregamento de dados por meio de planilhas.
+- RF22: O sistema deve permitir, via interface gráfica, a alteração de registros já existentes de problemas públicos, compromissos, objetivos, linhas de ação e tarefas.
+- RF23: O sistema deve controlar o acesso a rotas e recursos protegidos por meio de tokens de sessão autenticados, garantindo que apenas sessões válidas e vigentes tenham acesso, e que o acesso seja revogado ao encerrar a sessão ou após expiração por inatividade.
+- RF24: O sistema deve controlar, por perfil de usuário (SEDEF, Conselho/Secretarias, público geral), o que cada um pode visualizar e o que pode alterar, bloqueando edição para perfis sem permissão.
+- RF25: O sistema deve validar formato e campos obrigatórios dos dados inseridos pela interface e por planilha (RF21), recusando registros inválidos e informando o erro ao usuário.
+- RF26: O sistema deve permitir alternar o idioma da interface entre português e espanhol.
 - RF27: O sistema deve disponibilizar informações de “Procure ajuda” e informações de canais de acolhimento e socorro para crianças e adolescentes.
 
 ## Requisitos Não Funcionais
@@ -122,9 +135,9 @@ sem perda de informações ou formatações incorretas.
 - RNF05: O sistema deve possuir documentação no repositório, em português, incluindo stack e versões das ferramentas, justificativas das decisões técnicas principais, instruções de execução do protótipo e matriz de rastreabilidade.
 - RNF06: A interface do sistema deve manter consistência visual e de navegação com o site institucional do Conselho Estadual da Criança e do Adolescente do Paraná (https://www.cedca.pr.gov.br/), reproduzindo no mínimo: paleta de cores e tipografia institucionais e nomenclatura e ícones compatíveis com o vocabulário já usado pelo Conselho.
 - RNF07: O sistema deve demonstrar suporte a um dataset de referência que represente o Plano Decenal em escala estadual (mínimo: dados dos 23 compromissos, hierarquia completa de exemplo e histórico simulado de 10 anos), com importação por planilha e consultas (busca/filtro) funcionais sem falha de integridade.
-- RNF08: O sistema deve encerrar a sessão do usuário automáticamente após 30
+- RNF08: O sistema deve encerrar a sessão do usuário automaticamente após 30
 minutos de inatividade.
 
 ### * Nota de consistência 
 - RF07, RF08 e RF13: os três tratam de mudanças ao longo do tempo, mas não se sobrepõem: o RF07 mostra quando foi a última atualização de um item, o RF08 mostra o que mudou no conteúdo de uma tarefa (valor anterior e novo), e o RF13 registra quem realizou cada ação, para fins de auditoria. Cada um cumpre um propósito distinto e se vincula a telas e casos de uso diferentes.
-- RF09 e RF23: Não se sobrepõem. O RF09 é a administração das permissões (onde o administrador define quem tem qual perfil); o RF23 é a aplicação dessas permissões (o sistema bloqueando ou liberando ações conforme o perfil de cada um).
+- RF09 e RF24: Não se sobrepõem. O RF09 é a administração das permissões (onde o administrador define quem tem qual perfil); o RF23 é a aplicação dessas permissões (o sistema bloqueando ou liberando ações conforme o perfil de cada um).
