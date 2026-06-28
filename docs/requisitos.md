@@ -74,8 +74,7 @@
 - RF24: Controle de acesso por perfil (quem pode visualizar ou alterar)
 - RF25: Validação de formato dos dados inseridos (interface e planilha)
 - RF26: Interface em português e espanhol
-- RF27: Área dedicada a crianças e adolescentes (informação e ajuda/socorro)
-
+- RF27/RF28: Área dedicada a crianças e adolescentes (informação e ajuda/socorro)
 
 
 ## Requisitos Funcionais
@@ -112,7 +111,8 @@ camadas: SEDEF, Conselho Estadual/Secretarias, público geral).
 - RF24: O sistema deve controlar, por perfil de usuário (SEDEF, Conselho/Secretarias, público geral), o que cada um pode visualizar e o que pode alterar, bloqueando edição para perfis sem permissão.
 - RF25: O sistema deve validar formato e campos obrigatórios dos dados inseridos pela interface e por planilha (RF21), recusando registros inválidos e informando o erro ao usuário.
 - RF26: O sistema deve permitir alternar o idioma da interface entre português e espanhol.
-- RF27: O sistema deve disponibilizar informações de “Procure ajuda” e informações de canais de acolhimento e socorro para crianças e adolescentes.
+- RF27: O sistema deve disponibilizar área para crianças e adolescentes com explicação acessível dos Compromissos Decenais.
+- RF28: O sistema deve disponibilizar informações de “Procure ajuda” e informações de canais de acolhimento e socorro para crianças e adolescentes.
 
 ## Requisitos Não Funcionais
 - RNF01: A interface deve ser acessível conforme os princípios do Design Universal,
