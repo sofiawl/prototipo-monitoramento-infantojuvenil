@@ -61,14 +61,6 @@
     - Por que a mudança foi necessária? "Medidas de segurança" era vago e não verificável, a versão revisada especifica mecanismos concretos e delimita o escopo do RF14 para não se sobrepor a RF22 (tokens de sessão autenticados), RF25 (validação) e RF13 (registro de ações).
 - RF15: 
     - Foi excluído porque estava duplicado (RF09). 
-- RF16:
-    - Antes: O sistema deve exibir gráficos de progresso para cada indicador. (RF17 e RF18 eram requisitos separados)
-    - Depois: RF16 absorve RF17 (filtro por ano) e RF18 (diferenciação visual por tipo) num único requisito.
-    - Por que a mudança foi necessária? RF16, RF17 e RF18 descreviam sub-aspectos da mesma funcionalidade (exibição de gráfico de indicador). Manter três requisitos para uma única tela criava granularidade excessiva e dificultava o mapeamento na matriz de rastreabilidade. 
-- RF17:
-    - Excluído pois fui incorporado ao RF16
-- RF18:
-    - Excluído pois fui incorporado ao RF16
 - RF22:
     - Antes: O sistema deve permitir a alteração de dados por meio da interface do sistema.
     - Depois: O sistema deve permitir, via interface gráfica, a alteração de registros já existentes de problemas públicos, compromissos, objetivos, linhas de ação e tarefas.
@@ -109,8 +101,8 @@ dos dados de monitoramento de um conjunto filtrado.
 criptografada (hash) e trafegando os dados por conexão segura (HTTPS), de modo que dados sensíveis não sejam expostos em texto puro.
 - RF15: Excluído por duplicação RF09
 - RF16: O sistema deve exibir gráficos de progresso para cada indicador.
-- RF17: Excluído por consolidação com RF16
-- RF18: Excluído por consolidação com RF16
+- RF17: O sistema deve permitir que o usuário filtre gráficos de indicadores por ano.
+- RF18: O sistema deve diferenciar visualmente indicadores por seu respectivo tipo.
 - RF19: O sistema deve exibir o Responsável Principal e os Colaboradores para cada Ação.
 - RF20: O sistema deve permitir a existência de diferentes usuários (no mínimo três
 camadas: SEDEF, Conselho Estadual/Secretarias, público geral).
