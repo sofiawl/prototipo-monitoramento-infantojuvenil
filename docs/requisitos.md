@@ -1,11 +1,6 @@
 # Requisitos
 [Levantamento de Requisitos fornecido](https://moodle.c3sl.ufpr.br/pluginfile.php/239367/mod_resource/content/0/Requisitos%20plano%20decenal%20-%20Resultado%20Final.pdf)
 
-
-## Log de mudanças:
-### 25/05: Adição dos requisitos iniciais
-
-### 28/05-28/06: Levantamento de mudanças dos requisitos iniciais
 **Alterações:**
 - RNF05:
     - Antes: O sistema deve ser bem documentado.
