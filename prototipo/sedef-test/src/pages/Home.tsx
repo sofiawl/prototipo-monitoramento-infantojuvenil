@@ -192,9 +192,12 @@ function SectionCompromissos() {
                                             {item.descricao}
                                         </p>
 
-                                        <button className="w-full bg-blue-500 text-white rounded-md font-semibold text-sm uppercase tracking-wider py-3 mt-auto hover:bg-blue-400 transition-colors">
+                                        <Link
+                                            to={`/plano-decenal?compromisso=${item.numero}`}
+                                            className="w-full bg-blue-500 text-white rounded-md font-semibold text-sm uppercase tracking-wider py-3 mt-auto hover:bg-blue-400 transition-colors text-center"
+                                        >
                                             Ver Detalhes
-                                        </button>
+                                        </Link>
                             
                                     </CardContent>
                                 </Card>

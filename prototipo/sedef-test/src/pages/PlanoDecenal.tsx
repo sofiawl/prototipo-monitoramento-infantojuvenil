@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import {
 Accordion,
 AccordionContent,
@@ -7,6 +9,10 @@ AccordionTrigger,
 import { compromissos } from '@/data/planoDecenal'
 import type { Objetivo } from '@/data/planoDecenal'
 import { HiOutlineDownload } from "react-icons/hi";
+
+function getCompromissoIdByNumero(numero: number) {
+  return compromissos.find((c) => c.numero === numero)?.id
+}
 
 
 function BannerSection() {
@@ -113,6 +119,33 @@ return (
 }
 
 function CompromissosSection() {
+const [searchParams] = useSearchParams()
+const compromissoParam = searchParams.get('compromisso')
+
+const [openIds, setOpenIds] = useState<string[]>(() => {
+    if (!compromissoParam) return []
+    const numero = parseInt(compromissoParam, 10)
+    if (Number.isNaN(numero)) return []
+    const id = getCompromissoIdByNumero(numero)
+    return id ? [id] : []
+})
+
+useEffect(() => {
+    if (!compromissoParam) return
+    const numero = parseInt(compromissoParam, 10)
+    if (Number.isNaN(numero)) return
+    const id = getCompromissoIdByNumero(numero)
+    if (!id) return
+    setOpenIds([id])
+    const timer = setTimeout(() => {
+        document.getElementById(`compromisso-${numero}`)?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+        })
+    }, 350)
+    return () => clearTimeout(timer)
+}, [compromissoParam])
+
 return (
     <section className="relative w-full py-16 bg-gray-50 overflow-hidden">
 
@@ -140,11 +173,17 @@ return (
         </h2>
         </div>
 
-        {/* Accordion de compromissos — type="multiple" = vários abertos */}
-        <Accordion type="multiple" className="flex flex-col gap-3">
+        {/* Accordion de compromissos "multiple" = vários abertos */}
+        <Accordion
+            type="multiple"
+            className="flex flex-col gap-3"
+            value={openIds}
+            onValueChange={setOpenIds}
+        >
         {compromissos.map((compromisso) => (
             <AccordionItem
             key={compromisso.id}
+            id={`compromisso-${compromisso.numero}`}
             value={compromisso.id}
             className="border border-gray-300 rounded-xl overflow-hidden shadow-sm bg-white"
             >

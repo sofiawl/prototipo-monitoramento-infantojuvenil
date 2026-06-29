@@ -134,4 +134,21 @@ export const compromissos: Compromisso[] = [
       },
     ],
   },
+  {
+    id: 'c6',
+    numero: 6,
+    titulo: 'Convivência Familiar',
+    tipo: 'Marco Situacional',
+    descricao: 'Fortalecer a convivência familiar e comunitária, garantindo suporte às famílias em situação de vulnerabilidade social para proteção de crianças e adolescentes.',
+    objetivos: [
+      {
+        id: 'c6-o1',
+        descricao: 'Fortalecer programas de apoio à convivência familiar e comunitária para famílias em situação de vulnerabilidade social.',
+        linhasDeAcao: [
+          { id: 'c6-o1-l1', descricao: 'Ampliar cobertura de serviços de apoio psicossocial às famílias em territórios prioritários.' },
+          { id: 'c6-o1-l2', descricao: 'Fortalecer a articulação entre assistência social, saúde e educação no acompanhamento familiar.' },
+        ],
+      },
+    ],
+  },
 ]
