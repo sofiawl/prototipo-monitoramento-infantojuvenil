@@ -8,16 +8,15 @@ Critérios derivados de [requisitos.md](./requisitos.md).
 - [ ] CA01.1: O sistema exibe os 23 problemas públicos, cada um com vínculo identificável ao Compromisso Decenal correspondente.
 
 ### RF02
-- [ ] CA02.1: O usuário navega na ordem Objetivo → Linhas de Ação → Tarefas sem perder o contexto hierárquico.
+- [ ] CA02.1: O usuário navega pela hierarquia completa Problema Público → Compromisso → Objetivo → Linha de Ação → Tarefa sem perder o vínculo de cada item ao seu nível superior.
 - [ ] CA02.2: Ao abrir uma tarefa, são exibidos os dados de monitoramento associados (quando cadastrados).
 
 ### RF03
-- [ ] CA03.1: Tarefas/indicadores exibem percentual concluído quando informado.
-- [ ] CA03.2: É possível definir e visualizar os status: não iniciada, em andamento e concluída.
+- [ ] CA03.1: Tarefas exibem status (não iniciada, em andamento, concluída) e indicadores exibem seu valor atual numérico.
 
 ### RF04
 - [ ] CA04.1: A busca por palavra-chave retorna registros que contenham o termo buscado.
-- [ ] CA04.2: A busca por Responsável, eixo do Plano Decenal e Compromisso retorna resultados corretos para dados conhecidos no sistema.
+- [ ] CA04.2: A busca por palavra-chave não retorna resultados de outros critérios (responsável, compromisso, período), que pertencem aos filtros do RF05.
 
 ### RF05
 - [ ] CA05.1: Os filtros por compromisso, indicador, período e responsável reduzem a listagem de forma coerente com o critério escolhido.
@@ -31,7 +30,7 @@ Critérios derivados de [requisitos.md](./requisitos.md).
 - [ ] CA07.1: Cada dado monitorado exibe a data/hora da última atualização, que muda após uma nova edição.
 
 ### RF08
-- [ ] CA08.1: Toda alteração em uma tarefa gera entrada no histórico com data e identificação do usuário (quando autenticado).
+- [ ] CA08.1: Toda alteração em uma tarefa gera entrada no histórico contendo a data, o conteúdo anterior e o novo conteúdo.
 - [ ] CA08.2: O histórico mantém registros anteriores e permite visualizar a evolução em ordem cronológica.
 
 ### RF09
@@ -43,63 +42,67 @@ Critérios derivados de [requisitos.md](./requisitos.md).
 
 ### RF11
 - [ ] CA11.1: Login com credenciais válidas concede acesso às áreas restritas.
-- [ ] CA11.2: Credenciais inválidas são recusadas, sem liberar área restrita.
+- [ ] CA11.2: Credenciais inválidas são recusadas, sem liberar área restrita, e uma mensagem de erro é exibida ao usuário.
 
 ### RF12
-- [ ] CA12.1: Perfil autorizado cadastra problema, compromisso ou objetivo pela interface e o registro aparece na navegação hierárquica.
+- [ ] CA12.1: Perfil autorizado cadastra problema público, compromisso, objetivo, linha de ação e tarefa pela interface e o registro aparece na navegação hierárquica.
 
 ### RF13
 - [ ] CA13.1: Ações que alteram o estado do sistema (criar, editar, excluir, alterar permissões) ficam registradas com usuário e data/hora consultáveis.
 
 ### RF14
-- [ ] CA14.1: Entradas maliciosas em campos de texto (ex.: script) são rejeitadas ou sanitizadas, sem execução na interface nem corrupção dos dados.
+- [ ] CA14.1: Credenciais de usuário são armazenadas em formato criptografado (hash), não em texto puro, verificável no banco de dados de teste.
+- [ ] CA14.2: A comunicação entre cliente e servidor ocorre por conexão segura (HTTPS), sem trafegar dados sensíveis em texto puro.
 
 ### RF15
-- [ ] CA15.1: Indicadores com dados numéricos exibem gráfico de progresso coerente com os valores cadastrados.
+- *requisito removido por duplicação*
 
 ### RF16
-- [ ] CA16.1: Ao filtrar gráficos por ano, a visualização muda conforme os dados daquele ano (com pelo menos dois anos no dataset de teste).
+- [ ] CA16.1: Indicadores com dados numéricos exibem gráfico de progresso coerente com os valores cadastrados.
 
 ### RF17
-- [ ] CA17.1: Tipos diferentes de indicador são distinguíveis visualmente (cor, ícone ou legenda).
+- [ ] CA17.1: Ao filtrar gráficos por ano, a visualização muda conforme os dados daquele ano (com pelo menos dois anos no dataset de teste).
 
 ### RF18
-- [ ] CA18.1: A tela da ação exibe Responsável Principal e Colaboradores quando estiverem cadastrados.
+- [ ] CA18.1: Tipos diferentes de indicador são distinguíveis visualmente (cor, ícone ou legenda).
 
 ### RF19
-- [ ] CA19.1: Existem contas dos três perfis: SEDEF, Conselho/Secretarias e público geral (documentadas para teste).
-- [ ] CA19.2: O perfil público geral não realiza operações reservadas a perfis internos (conforme matriz em regras de negócio).
+- [ ] CA19.1: A tela da ação exibe Responsável Principal e Colaboradores quando estiverem cadastrados.
 
 ### RF20
-- [ ] CA20.1: Planilha no formato definido importa registros válidos com sucesso.
-- [ ] CA20.2: Planilha com erros de formato ou campos obrigatórios gera recusa ou relatório de erro, sem importar linhas inválidas silenciosamente.
+- [ ] CA20.1: Existem contas dos três perfis: SEDEF, Conselho/Secretarias e público geral (documentadas para teste).
+- [ ] CA20.2: O perfil público geral não realiza operações reservadas a perfis internos (conforme matriz em regras de negócio).
 
 ### RF21
-- [ ] CA21.1: Perfil autorizado edita dados permitidos pela interface e a alteração reflete na visualização e no histórico (RF07/RF08).
+- [ ] CA21.1: Planilha no formato definido importa registros válidos com sucesso.
+- [ ] CA21.2: Planilha com erros de formato ou campos obrigatórios gera recusa ou relatório de erro, sem importar linhas inválidas silenciosamente.
 
 ### RF22
-- [ ] CA22.1: Após login, rotas protegidas exigem token JWT válido.
-- [ ] CA22.2: Token inválido ou sessão encerrada impede acesso a rotas protegidas.
+- [ ] CA22.1: Perfil autorizado edita dados permitidos pela interface e a alteração reflete na visualização e no histórico (RF07/RF08).
 
 ### RF23
-- [ ] CA23.1: Perfil somente leitura visualiza dados mas não consegue salvar alterações (botão ausente ou operação bloqueada).
-- [ ] CA23.2: Perfil com permissão de edição altera apenas entidades previstas na matriz perfil × permissão.
-- [ ] CA23.3: A matriz de permissões está documentada em `regras-negocio.md` e coberta pelos testes acima.
+- [ ] CA23.1: Após login, rotas protegidas exigem tokens de sessão autenticados.
+- [ ] CA23.2: Token inválido ou sessão encerrada impede acesso a rotas protegidas.
 
 ### RF24
-- [ ] CA24.1: A interface rejeita data inválida, percentual fora de 0–100 e status fora da lista permitida, com mensagem ao usuário.
-- [ ] CA24.2: A importação por planilha (RF20) aplica as mesmas regras e informa linhas rejeitadas.
+- [ ] CA24.1: Perfil somente leitura visualiza dados mas não consegue salvar alterações (botão ausente ou operação bloqueada).
+- [ ] CA24.2: Perfil com permissão de edição altera apenas entidades previstas na matriz perfil × permissão.
+- [ ] CA24.3: A matriz de permissões está documentada em `regras-negocio.md` e coberta pelos testes acima.
 
 ### RF25
-- [ ] CA25.1: O seletor de idioma alterna rótulos e menus principais entre português e espanhol em pelo menos as telas de navegação, login e busca.
+- [ ] CA25.1: A interface rejeita data inválida, percentual fora de 0–100 e status fora da lista permitida, com mensagem ao usuário.
+- [ ] CA25.2: A importação por planilha (RF21) aplica as mesmas regras e informa linhas rejeitadas.
 
 ### RF26
-- [ ] CA26.1: Existe seção/área identificável para crianças e adolescentes, acessível a partir da navegação principal.
-- [ ] CA26.2: O conteúdo explica o Compromisso Decenal em linguagem simples e estrutura adequada ao público infantojuvenil.
+- [ ] CA26.1: O seletor de idioma alterna rótulos e menus principais entre português e espanhol em pelo menos as telas de navegação, login e busca.
 
 ### RF27
-- [ ] CA27.1: A página “Procure ajuda” apresenta orientação clara e canais de acolhimento definidos com o cliente.
-- [ ] CA27.2: Telefones e links de socorro exibidos conferem com fontes oficiais validadas antes da entrega.
+- [ ] CA27.1: Existe seção/área identificável para crianças e adolescentes, acessível a partir da navegação principal.
+- [ ] CA27.2: O conteúdo explica o Compromisso Decenal em linguagem simples e estrutura adequada ao público infantojuvenil.
+
+### RF28
+- [ ] CA28.1: A página “Procure ajuda” apresenta orientação clara e canais de acolhimento definidos com o cliente.
+- [ ] CA28.2: Telefones e links de socorro exibidos conferem com fontes oficiais validadas antes da entrega.
 
 ## Critérios de Aceite Requisitos Não Funcionais
 
