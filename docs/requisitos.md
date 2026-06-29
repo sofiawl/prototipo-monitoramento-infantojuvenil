@@ -5,7 +5,7 @@
 ## Log de mudanças:
 ### 25/05: Adição dos requisitos iniciais
 
-### 28/05: Levantamento de mudanças dos requisitos iniciais
+### 28/05-28/06: Levantamento de mudanças dos requisitos iniciais
 **Alterações:**
 - RNF05:
     - Antes: O sistema deve ser bem documentado.
@@ -48,9 +48,9 @@
     - Depois: O sistema deve permitir que usuários cadastrados se autentiquem por meio de credenciais (identificador e senha), concedendo acesso apenas quando as credenciais forem válidas e exibindo mensagem de erro quando forem inválidas.
     - Por que a mudança foi necessária ? A versão original apenas afirmava a existência de login, sem definir as credenciais usadas, o comportamento em caso de sucesso/falha e nem critério de verificação.
 - RF12:
-  - Antes: O sistema deve fornecer a possibilidade de inserção de problemas, compromissos, objetivos, etc via interface gráfica.
-  - Depois: O sistema deve permitir, via interface gráfica, a inserção de novos registros de problemas públicos, compromissos, objetivos, linhas de ação e tarefas.
-  - Por que a mudança foi necessária? O "etc" deixava a lista de entidades aberta e não verificável. A nova versão fecha a lista com base na hierarquia do Plano Decenal e deixa explícito que o RF12 trata da criação de registros.
+    - Antes: O sistema deve fornecer a possibilidade de inserção de problemas, compromissos, objetivos, etc via interface gráfica.
+    - Depois: O sistema deve permitir, via interface gráfica, a inserção de novos registros de problemas públicos, compromissos, objetivos, linhas de ação e tarefas.
+    - Por que a mudança foi necessária? O "etc" deixava a lista de entidades aberta e não verificável. A nova versão fecha a lista com base na hierarquia do Plano Decenal e deixa explícito que o RF12 trata da criação de registros.
 - RF13:
     - Antes: O sistema deve registrar e armazenar ações dos usuários que podem alterar o estado do sistema.
     - Depois:  O sistema deve manter um registro de auditoria das ações que alteram o estado do sistema, armazenando, para cada ação, o usuário responsável, o tipo de ação realizada, a data e a hora.
@@ -61,10 +61,15 @@
     - Por que a mudança foi necessária? "Medidas de segurança" era vago e não verificável, a versão revisada especifica mecanismos concretos e delimita o escopo do RF14 para não se sobrepor a RF22 (tokens de sessão autenticados), RF25 (validação) e RF13 (registro de ações).
 - RF15: 
     - Foi excluído porque estava duplicado (RF09). 
+- RF20: 
+    - Antes: O sistema deve permitir a existência de diferentes usuários (no mínimo três
+    camadas: SEDEF, Conselho Estadual/Secretarias, público geral).
+    - Depois: O sistema deve permitir a existência de  três diferentes usuários: SEDEF, Conselho Estadual/Secretarias, público geral.
+    - Porque da mudança: O termo "no mínimo três camadas" abria margem para uma ambiguidade de escopo sem fim (o sistema poderia ter 4, 5 ou 10 níveis de acesso não planejados). A versão revisada define de forma exata e fechada quais são os perfis de usuários previstos, facilitando a modelagem do banco de dados, o controle de acessos e a homologação dos testes de perfil.
 - RF22:
     - Antes: O sistema deve permitir a alteração de dados por meio da interface do sistema.
-    - Depois: O sistema deve permitir, via interface gráfica, a alteração de registros já existentes de problemas públicos, compromissos, objetivos, linhas de ação e tarefas.
-    - Por que a mudança foi necessária? "Alteração de dados" era genérico. A nova versão especifica quais registros podem ser editados e delimita o escopo do RF21 como edição do que já existe, distinguindo-o do RF12 (criação). 
+    - Depois: O sistema deve permitir, via interface gráfica, a alteração de registros já existentes de problemas públicos, compromissos, objetivos, linhas de ação e tarefas. 
+    - Por que a mudança foi necessária? "Alteração de dados" era genérico. A nova versão especifica quais registros podem ser editados e delimita o escopo do RF22 como edição do que já existe, distinguindo-o do RF12 (criação). 
 - RF23:
     - Antes: O sistema deve utilizar Tokens JWT para aumentar a segurança.
     - Depois: O sistema deve controlar o acesso a rotas e recursos protegidos por meio de tokens de sessão autenticados, garantindo que apenas sessões válidas e vigentes tenham acesso, e que o acesso seja revogado ao encerrar a sessão ou após expiração por inatividade.
@@ -73,9 +78,8 @@
 **Inclusões**
 - RF24: Controle de acesso por perfil (quem pode visualizar ou alterar)
 - RF25: Validação de formato dos dados inseridos (interface e planilha)
-- RF26: Interface em português e espanhol
+- RF26: Área pública disponível em português e espanhol, com alternância de idioma
 - RF27/RF28: Área dedicada a crianças e adolescentes (informação e ajuda/socorro)
-
 
 ## Requisitos Funcionais
 - RF01: O sistema deve permitir que o usuário visualize os 23 problemas públicos, cada
@@ -98,21 +102,19 @@ dos dados de monitoramento de um conjunto filtrado.
 - RF13: O sistema deve manter um registro de auditoria das ações que alteram o estado do sistema, armazenando, para cada ação, o usuário responsável, o tipo de ação realizada, a data e a hora.
 - RF14: O sistema deve proteger os dados inseridos contra acesso não autorizado, armazenando credenciais de forma 
 criptografada (hash) e trafegando os dados por conexão segura (HTTPS), de modo que dados sensíveis não sejam expostos em texto puro.
-- RF15: Excluído por duplicação RF09
 - RF16: O sistema deve exibir gráficos de progresso para cada indicador.
 - RF17: O sistema deve permitir que o usuário filtre gráficos de indicadores por ano.
 - RF18: O sistema deve diferenciar visualmente indicadores por seu respectivo tipo.
 - RF19: O sistema deve exibir o Responsável Principal e os Colaboradores para cada Ação.
-- RF20: O sistema deve permitir a existência de diferentes usuários (no mínimo três
-camadas: SEDEF, Conselho Estadual/Secretarias, público geral).
+- RF20: O sistema deve permitir a existência de  três diferentes usuários: SEDEF, Conselho Estadual/Secretarias, público geral.
 - RF21: O sistema deve permitir o carregamento de dados por meio de planilhas.
 - RF22: O sistema deve permitir, via interface gráfica, a alteração de registros já existentes de problemas públicos, compromissos, objetivos, linhas de ação e tarefas.
 - RF23: O sistema deve controlar o acesso a rotas e recursos protegidos por meio de tokens de sessão autenticados, garantindo que apenas sessões válidas e vigentes tenham acesso, e que o acesso seja revogado ao encerrar a sessão ou após expiração por inatividade.
-- RF24: O sistema deve controlar, por perfil de usuário (SEDEF, Conselho/Secretarias, público geral), o que cada um pode visualizar e o que pode alterar, bloqueando edição para perfis sem permissão.
+- RF24: O sistema deve controlar o acesso a recursos conforme a matriz de perfis e permissões, garantindo que o perfil SEDEF (Administrador) possua controle total, incluindo gerenciamento de contas; o perfil Conselho Estadual/Secretarias possua permissão para visualizar conteúdos restritos, além de inserir, alterar e importar dados; e o perfil público geral possua acesso restrito a conteúdos públicos, buscas, filtros e exportações, sendo estritamente bloqueado para qualquer ação de adição, alteração ou administração.
 - RF25: O sistema deve validar formato e campos obrigatórios dos dados inseridos pela interface e por planilha (RF21), recusando registros inválidos e informando o erro ao usuário.
-- RF26: O sistema deve permitir alternar o idioma da interface entre português e espanhol.
-- RF27: O sistema deve disponibilizar área para crianças e adolescentes com explicação acessível dos Compromissos Decenais.
-- RF28: O sistema deve disponibilizar informações de “Procure ajuda” e informações de canais de acolhimento e socorro para crianças e adolescentes.
+- RF26: O sistema deve disponibilizar a área pública (conteúdos visíveis sem autenticação) em português e em espanhol, permitindo ao usuário alternar entre os dois idiomas.
+- RF27: O sistema deve disponibilizar uma área dedicada a adolescentes (10–17 anos) com explicação dos Compromissos Decenais em linguagem simples e direta, sem jargão técnico ou jurídico, utilizando frases curtas e exemplos concretos do cotidiano.
+- RF28: O sistema deve disponibilizar, na área dedicada a adolescentes, uma seção “Procure ajuda” com canais oficiais de acolhimento e socorro (nome do canal, descrição breve e forma de contato).
 
 ## Requisitos Não Funcionais
 - RNF01: A interface deve ser acessível conforme os princípios do Design Universal,
@@ -127,9 +129,8 @@ sem perda de informações ou formatações incorretas.
 - RNF05: O sistema deve possuir documentação no repositório, em português, incluindo stack e versões das ferramentas, justificativas das decisões técnicas principais, instruções de execução do protótipo e matriz de rastreabilidade.
 - RNF06: A interface do sistema deve manter consistência visual e de navegação com o site institucional do Conselho Estadual da Criança e do Adolescente do Paraná (https://www.cedca.pr.gov.br/), reproduzindo no mínimo: paleta de cores e tipografia institucionais e nomenclatura e ícones compatíveis com o vocabulário já usado pelo Conselho.
 - RNF07: O sistema deve demonstrar suporte a um dataset de referência que represente o Plano Decenal em escala estadual (mínimo: dados dos 23 compromissos, hierarquia completa de exemplo e histórico simulado de 10 anos), com importação por planilha e consultas (busca/filtro) funcionais sem falha de integridade.
-- RNF08: O sistema deve encerrar a sessão do usuário automaticamente após 30
-minutos de inatividade.
+- RNF08: O sistema deve encerrar a sessão do usuário automaticamente após 30 minutos de inatividade.
 
 ### * Nota de consistência 
 - RF07, RF08 e RF13: os três tratam de mudanças ao longo do tempo, mas não se sobrepõem: o RF07 mostra quando foi a última atualização de um item, o RF08 mostra o que mudou no conteúdo de uma tarefa (valor anterior e novo), e o RF13 registra quem realizou cada ação, para fins de auditoria. Cada um cumpre um propósito distinto e se vincula a telas e casos de uso diferentes.
-- RF09 e RF24: Não se sobrepõem. O RF09 é a administração das permissões (onde o administrador define quem tem qual perfil); o RF23 é a aplicação dessas permissões (o sistema bloqueando ou liberando ações conforme o perfil de cada um).
+- RF09 e RF24: Não se sobrepõem. O RF09 é a administração das permissões (onde o administrador define quem tem qual perfil); o RF24 é a aplicação dessas permissões (o sistema bloqueando ou liberando ações conforme o perfil de cada um).
