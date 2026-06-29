@@ -33,11 +33,11 @@ Os casos de uso estão divididos com base nos atores que podem realizar esse flu
 
 
 ### UC04: Buscar Informações no Sistema
-**Descrição:** O usuário realiza buscas por palavra-chave, responsável, eixo do Plano Decenal ou compromisso.
+**Descrição:** O usuário realiza buscas por texto livre (palavra-chave) sobre os registros do Plano Decenal.
 **Fluxo principal:**
 1. O usuário insere um termo de busca no campo de pesquisa.
-2. O sistema processa a busca considerando palavra-chave, responsável, eixo ou compromisso.
-3. O sistema exibe os resultados correspondentes.
+2. O sistema processa a busca nos registros do Plano Decenal.
+3. O sistema exibe os itens cujo conteúdo contém o termo buscado.
 
 
 ### UC05: Aplicar Filtros de Visualização
@@ -88,7 +88,7 @@ Os casos de uso estão divididos com base nos atores que podem realizar esse flu
 2. O sistema exibe o Responsável Principal e a lista de Colaboradores vinculados.
 
 
-### UC19: Alternar Modo de Alto Contraste
+### UC16: Alternar Modo de Alto Contraste
 **Descrição:** O usuário ativa o modo de alto contraste para melhor acessibilidade visual.
 **Fluxo principal:**
 1. O usuário acessa as configurações de acessibilidade.
@@ -96,7 +96,7 @@ Os casos de uso estão divididos com base nos atores que podem realizar esse flu
 3. O sistema aplica o novo esquema visual em toda a interface.
 
 
-### UC20: Alternar Idioma da Interface
+### UC17: Alternar Idioma da Interface
 **Descrição:** O usuário altera o idioma da interface entre português e espanhol.
 **Fluxo principal:**
 1. O usuário acessa o seletor de idioma.
@@ -104,23 +104,23 @@ Os casos de uso estão divididos com base nos atores que podem realizar esse flu
 3. O sistema atualiza todos os textos da interface para o idioma selecionado.
 
 
-### UC21: Acessar Área Dedicada a Crianças e Adolescentes
+### UC18: Acessar Área Dedicada a Crianças e Adolescentes
 **Descrição:** O usuário acessa uma área com explicação acessível dos Compromissos Decenais voltada ao público infantojuvenil.
 **Fluxo principal:**
 1. O usuário acessa a área dedicada a crianças e adolescentes.
 2. O sistema exibe o conteúdo explicativo em linguagem acessível sobre os Compromissos Decenais.
 
 
-### UC22: Acessar Canais de Ajuda e Acolhimento
+### UC19: Acessar Canais de Ajuda e Acolhimento
 **Descrição:** O usuário acessa informações de procure ajuda e canais de acolhimento e socorro.
 **Fluxo principal:**
-1. O usuário acessa a área de rpocure ajuda.
+1. O usuário acessa a área de procure ajuda.
 2. O sistema exibe os canais de acolhimento e socorro disponíveis para crianças e adolescentes.
 
 
 ## Conselho/Secretarias
 
-> Este ator herda todos os casos de uso do Público Geral (UC01–UC10, UC19–UC22), além dos casos de uso abaixo.
+> Este ator herda todos os casos de uso do Público Geral (UC01–UC10, UC16–UC19), além dos casos de uso abaixo.
 
 ### UC11: Autenticar-se no Sistema
 **Descrição:** O usuário cadastrado se autentica usando identificador e senha.
@@ -132,7 +132,7 @@ Os casos de uso estão divididos com base nos atores que podem realizar esse flu
 3a. Se inválidas, o sistema exibe mensagem de erro e mantém o usuário na tela de login.
 
 
-### UC14: Inserir Novos Registros via Interface Gráfica
+### UC12: Inserir Novos Registros via Interface Gráfica
 **Descrição:** O usuário autorizado insere novos registros de problemas públicos, compromissos, objetivos, linhas de ação ou tarefas.
 **Fluxo principal:**
 1. O usuário acessa o formulário de cadastro da entidade desejada.
@@ -143,18 +143,18 @@ Os casos de uso estão divididos com base nos atores que podem realizar esse flu
 3a. Se a validação falhar, o sistema recusa o registro e informa o erro ao usuário.
 
 
-### UC15: Alterar Registros Existentes via Interface Gráfica
+### UC13: Alterar Registros Existentes via Interface Gráfica
 **Descrição:** O usuário autorizado edita registros já existentes de problemas públicos, compromissos, objetivos, linhas de ação ou tarefas.
 **Fluxo principal:**
 1. O usuário seleciona um registro existente.
 2. O usuário edita os campos desejados.
 3. O sistema valida o formato e os campos obrigatórios.
-4. O sistema salva as alterações e atualiza o histórico (UC08) e o registro de auditoria (UC18).
+4. O sistema salva as alterações e atualiza o histórico (UC08) e o registro de auditoria (UC20).
 **Fluxo de exceção:**
 3a. Se a validação falhar, o sistema recusa a alteração e informa o erro ao usuário.
 
 
-### UC16: Carregar Dados por Meio de Planilha
+### UC14: Carregar Dados por Meio de Planilha
 **Descrição:** O usuário importa dados para o sistema através de upload de planilha.
 **Fluxo principal:**
 1. O usuário seleciona a opção de importação por planilha.
@@ -169,10 +169,17 @@ Os casos de uso estão divididos com base nos atores que podem realizar esse flu
 
 > Este ator herda todos os casos de uso do Conselho/Secretarias (e, por consequência, do Público Geral), além do caso de uso abaixo.
 
-### UC17: Gerenciar Contas e Perfis de Usuário
+### UC15: Gerenciar Contas e Perfis de Usuário
 **Descrição:** O administrador gerencia contas de usuário e atribui ou altera perfis de acesso (SEDEF, Conselho/Secretarias, público geral).
 **Fluxo principal:**
 1. O administrador acessa o painel de administração.
 2. O administrador seleciona uma conta de usuário.
 3. O administrador atribui ou altera o perfil de acesso da conta.
-4. O sistema salva a alteração e registra a ação no log de auditoria (UC18).
+4. O sistema salva a alteração e registra a ação no log de auditoria (UC20).
+
+### UC20: Consultar Registro de Auditoria
+**Descrição:** O administrador consulta o log de auditoria com as ações que alteraram o estado do sistema.
+**Fluxo principal:**
+1. O administrador acessa o painel de auditoria.
+2. O sistema exibe a lista de ações registradas, com usuário responsável, tipo de ação, data e hora.
+3. O administrador consulta as entradas desejadas.
