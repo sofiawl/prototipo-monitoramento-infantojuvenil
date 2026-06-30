@@ -9,7 +9,6 @@ Critérios derivados de [requisitos.md](./requisitos.md).
 
 ### RF02
 - [ ] CA02.1: O usuário navega pela hierarquia completa Problema Público → Compromisso → Objetivo → Linha de Ação → Tarefa sem perder o vínculo de cada item ao seu nível superior.
-- [ ] CA02.2: Ao abrir uma tarefa, são exibidos os dados de monitoramento associados (quando cadastrados).
 
 ### RF03
 - [ ] CA03.1: Tarefas exibem status (não iniciada, em andamento, concluída) e indicadores exibem seu valor atual numérico.
@@ -87,7 +86,6 @@ Critérios derivados de [requisitos.md](./requisitos.md).
 ### RF24
 - [ ] CA24.1: Perfil somente leitura visualiza dados mas não consegue salvar alterações (botão ausente ou operação bloqueada).
 - [ ] CA24.2: Perfil com permissão de edição altera apenas entidades previstas na matriz perfil × permissão.
-- [ ] CA24.3: A matriz de permissões está documentada em `regras-negocio.md` e coberta pelos testes acima.
 
 ### RF25
 - [ ] CA25.1: A interface rejeita data inválida, percentual fora de 0–100 e status fora da lista permitida, com mensagem ao usuário.
@@ -109,7 +107,6 @@ Critérios derivados de [requisitos.md](./requisitos.md).
 ### RNF01
 - [ ] CAN01.1: Textos e botões principais atendem contraste adequado no modo normal e no alto contraste (RF10).
 - [ ] CAN01.2: É possível ajustar tamanho da fonte ou o layout permanece legível com zoom do navegador.
-- [ ] CAN01.3: Formulários e navegação principais são utilizáveis por teclado e possuem rótulos para leitores de tela nos fluxos de login e busca.
 
 ### RNF02
 - [ ] CAN02.1: As funções principais permanecem utilizáveis em desktop, tablet (~768px) e mobile (~375px).
