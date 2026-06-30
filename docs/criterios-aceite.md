@@ -8,7 +8,7 @@ Critérios derivados de [requisitos.md](./requisitos.md).
 - [ ] CA01.1: O sistema exibe os 23 problemas públicos, cada um com vínculo identificável ao Compromisso Decenal correspondente.
 
 ### RF02
-- [ ] CA02.1: O usuário navega pela hierarquia completa Problema Público → Compromisso → Objetivo → Linha de Ação → Tarefa sem perder o vínculo de cada item ao seu nível superior.
+- [ ] CA02.1: O usuário navega pela hierarquia Compromisso → Objetivo → Linha de Ação sem perder o vínculo de cada item ao seu nível superior.
 
 ### RF03
 - [ ] CA03.1: Tarefas exibem status (não iniciada, em andamento, concluída) e indicadores exibem seu valor atual numérico.

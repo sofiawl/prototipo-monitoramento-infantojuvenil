@@ -132,8 +132,16 @@ RF04 sobrepunha-se a RF05; RF19 abria margem para perfis não planejados; o anti
 - `docs/apresentacao.md`: roteiro/material de apresentação da entrega final.
 - `docs/historias-usuario.md`: enumeração final das histórias de usuário (HU01–HU22).
 
-### Requisitos adicionados / removidos / modificados
-Nenhum. Desde a Semana 3 **não houve adição, remoção ou modificação de escopo, identificador ou semântica** de nenhum RF/RNF. As edições posteriores em `docs/requisitos.md` foram **editoriais** (detalhamento de redação de RF20, RF24, RF26–RF28, correção de referências cruzadas e remoção de linhas redundantes).
+### Requisitos adicionados
+Nenhum.
+
+### Requisitos removidos
+Nenhum.
+
+### Requisitos modificados
+- **RF02**: hierarquia estreitada de cinco níveis (Problema Público → Compromisso → Objetivo → Linha de Ação → Tarefa, redação da Semana 2) para os **três níveis efetivamente navegáveis no protótipo** (Compromisso → Objetivo → Linha de Ação). O changelog do `requisitos.md` registra o antes/depois; CA02.1 (critérios), UC02 (casos de uso) e a validação foram alinhados aos três níveis.
+
+> As demais edições em `docs/requisitos.md` após a Semana 3 foram **editoriais** (detalhamento de redação de RF20, RF24, RF26–RF28, correção de referências cruzadas e remoção de linhas redundantes), sem mudança de identificador. As refinações de escopo de RF20, RF24, RF26 e RF27 já estão registradas no bloco da Semana 3.
 
 ### Justificativas das alterações
 O foco desta etapa foi **implementar no protótipo** as funcionalidades ainda não cobertas — autenticação, painel de administração e área infantojuvenil — em vez de alterar requisitos. A validação do protótipo ([`docs/validacao-requisitos.md`](validacao-requisitos.md)) registrou status de conformidade e lacunas de implementação, mas **não motivou reescrita de requisitos**: os achados são pendências de implementação, não de especificação. Login, painel admin e página "Sobre" foram construídos sobre os RFs já fechados na Semana 3, e os documentos de validação, rastreabilidade e apresentação consolidaram a entrega final.

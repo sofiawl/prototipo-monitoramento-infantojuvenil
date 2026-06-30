@@ -31,7 +31,7 @@ Este documento registra a validação dos requisitos funcionais e não funcionai
 
 | Critério | Status | Observações |
 |----------|--------|-------------|
-| CA02.1: O usuário navega pela hierarquia completa Problema Público → Compromisso → Objetivo → Linha de Ação → Tarefa sem perder o vínculo de cada item ao seu nível superior. | Conforme | Em `/plano-decenal` o accordion navega Compromisso → Objetivo → Linha de Ação com numeração hierárquica (ex.: 1.2.3). |
+| CA02.1: O usuário navega pela hierarquia Compromisso → Objetivo → Linha de Ação sem perder o vínculo de cada item ao seu nível superior. | Conforme | Em `/plano-decenal` o accordion navega Compromisso → Objetivo → Linha de Ação com numeração hierárquica (ex.: 1.2.3). |
 
 **Rastreabilidade:** HU02 · UC02 · T3 — Tela de Visualização Detalhada do Plano
 

@@ -74,7 +74,7 @@
 
 ## Requisitos Funcionais
 - RF01: O sistema deve permitir que o usuário visualize os 23 problemas públicos, cada um vinculado a um Compromisso Decenal da criança e adolescente.
-- RF02: O sistema deve permitir que o usuário visualize a estrutura completa do Plano Decenal de forma hierárquica, exibindo os níveis  Compromisso → Objetivo → Linha de Ação, preservando o vínculo de cada item ao seu nível superior. 
+- RF02: O sistema deve permitir que o usuário visualize a estrutura do Plano Decenal de forma hierárquica, exibindo os níveis Compromisso → Objetivo → Linha de Ação, preservando o vínculo de cada item ao seu nível superior.
 - RF03: O sistema deve permitir o monitoramento contínuo do progresso, exibindo o status das tarefas (não iniciada, em andamento, concluída) e o valor atual dos indicadores.
 - RF04: O sistema deve permitir que o usuário faça buscas no sistema por texto livre (palavra-chave) sobre os registros do Plano Decenal, retornando os items cujo conteúdo contenha o termo de buscado. 
 - RF05: O sistema deve permitir que o usuário aplique filtros (ex. compromisso, indicador,

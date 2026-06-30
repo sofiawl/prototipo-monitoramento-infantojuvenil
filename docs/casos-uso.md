@@ -15,13 +15,12 @@ Os casos de uso estão divididos com base nos atores que podem realizar esse flu
 
 
 ### UC02: Visualizar Estrutura Hierárquica do Plano
-**Descrição:** O usuário navega pela estrutura hierárquica completa do Plano Decenal (Problema Público → Compromisso → Objetivo → Linha de Ação → Tarefa).
+**Descrição:** O usuário navega pela estrutura hierárquica do Plano Decenal (Compromisso → Objetivo → Linha de Ação).
 **Fluxo principal:**
-1. O usuário seleciona um Problema Público ou Compromisso.
+1. O usuário seleciona um Compromisso.
 2. O sistema exibe os Objetivos vinculados.
 3. O usuário expande um Objetivo e o sistema exibe as Linhas de Ação vinculadas.
-4. O usuário expande uma Linha de Ação e o sistema exibe as Tarefas vinculadas.
-5. O sistema preserva e exibe o vínculo de cada item ao seu nível superior em todas as etapas.
+4. O sistema preserva e exibe o vínculo de cada item ao seu nível superior em todas as etapas.
 
 
 ### UC03: Monitorar Progresso de Tarefas e Indicadores
