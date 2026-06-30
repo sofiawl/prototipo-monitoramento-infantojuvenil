@@ -14,10 +14,6 @@
     - Antes: O sistema deve suportar a inserção de um número arbitrário (grande) de dados.
     - Depois: O protótipo deve demonstrar suporte a um dataset de referência que represente o Plano Decenal em escala estadual (mínimo: dados dos 23 compromissos, hierarquia completa de exemplo e histórico simulado de 10 anos), com importação por planilha e consultas (busca/filtro) funcionais sem falha de integridade
     - Porque a mudança foi necessária? “Número arbitrário (grande)” não define limites nem como validar
-- RF02:
-    - Antes: O sistema deve permitir a visualização hierárquica de: Objetivo ➔ Linhas de Ação ➔ Tarefas
-    - Depois: O sistema deve permitir que o usuário visualize a estrutura completa do Plano Decenal de forma hierárquica, exibindo os níveis Problema Público → Compromisso → Objetivo → Linha de Ação → Tarefa, preservando o vínculo de cada item ao seu nível superior. 
-    - Porque a mudança foi necessária ? A versão original omitia os níveis Problema Público e Compromisso, ficando incompleta frente à cadeia hierárquica exigida no enunciado; também não especificava a regra de vínculo entre níveis.
 - RF03:
     - Antes: O sistema deve permitir o monitoramento contínuo das tarefas/indicadores (ex. percentual concluído, status: não iniciada, em andamento, concluída).
     - Depois: O sistema deve permitir o monitoramento contínuo do progresso, exibindo o status das tarefas (não iniciada, em andamento, concluída) e o valor atual dos indicadores.
@@ -77,9 +73,8 @@
 - RF27/RF28: Área dedicada a crianças e adolescentes (informação e ajuda/socorro)
 
 ## Requisitos Funcionais
-- RF01: O sistema deve permitir que o usuário visualize os 23 problemas públicos, cada
-um vinculado a um Compromisso Decenal da criança e adolescente.
-- RF02: O sistema deve permitir que o usuário visualize a estrutura completa do Plano Decenal de forma hierárquica, exibindo os níveis Problema Público → Compromisso → Objetivo → Linha de Ação → Tarefa, preservando o vínculo de cada item ao seu nível superior. 
+- RF01: O sistema deve permitir que o usuário visualize os 23 problemas públicos, cada um vinculado a um Compromisso Decenal da criança e adolescente.
+- RF02: O sistema deve permitir que o usuário visualize a estrutura completa do Plano Decenal de forma hierárquica, exibindo os níveis compromisso → Objetivo → Linha de Ação, preservando o vínculo de cada item ao seu nível superior. 
 - RF03: O sistema deve permitir o monitoramento contínuo do progresso, exibindo o status das tarefas (não iniciada, em andamento, concluída) e o valor atual dos indicadores.
 - RF04: O sistema deve permitir que o usuário faça buscas no sistema por texto livre (palavra-chave) sobre os registros do Plano Decenal, retornando os items cujo conteúdo contenha o termo de buscado. 
 - RF05: O sistema deve permitir que o usuário aplique filtros (ex. compromisso, indicador,

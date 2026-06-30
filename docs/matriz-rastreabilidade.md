@@ -54,3 +54,6 @@
 | RNF06 | — | — | Todas as telas (identidade visual CEDCA-PR) |
 | RNF07 | — | UC04, UC05, UC14 | T2 — Tela de Monitoramento / T7 — Tela de Inserção de Dados |
 | RNF08 | HU12 | UC11 | T5 — Tela de Acesso (expiração de sessão por inatividade) |
+
+
+** telas T7 e T8 não foram implementadas.
