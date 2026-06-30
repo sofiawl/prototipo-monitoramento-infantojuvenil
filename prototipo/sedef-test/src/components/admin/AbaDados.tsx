@@ -5,7 +5,7 @@ import { Input } from '/@/components/ui/input'
 import {
   areas, compromissos, responsaveis, indicadores,
   getCompromissosByAreaId, getIndicadoresByCompromissoId,
-} from '@/data/monitoramento'
+} from '@/data/monitoramento-admin'
 import {
   dadosPorIndicador, submissoesMock,
   type EntradaDado, type SubmissaoDado,
