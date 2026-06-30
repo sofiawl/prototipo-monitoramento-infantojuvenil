@@ -114,17 +114,33 @@ RF04 sobrepunha-se a RF05; RF19 abria margem para perfis não planejados; o anti
 - Histórias de usuário (de 8 para ~20) e regras de negócio reorganizadas tornam a verificação na entrega final mais direta e a rastreabilidade bidirecional.
 - O protótipo passou a cobrir RF01–RF03, RF06–RF08, RF16–RF19 e RNF01/RNF02/RNF06/RNF07 com dados mockados.
 
-## Consolidação final — sem novas mudanças de escopo
+## Pós-Semana 3 — Implementação do protótipo e fechamento da documentação
 
 > Retrato fechado: [`entregas/entrega-final.md`](../entregas/entrega-final.md)
+
+### Artefatos produzidos/atualizados
+- `prototipo/sedef-test/`: evolução do protótipo para cobrir as funcionalidades administrativas e de conteúdo restantes.
+  - **Login e autenticação**: `src/pages/Login.tsx`, `src/context/AuthContext.tsx` e `src/data/admin.ts` — tela de login, contexto de sessão (autenticação e perfil do usuário) e dados mockados de contas/perfis. Cobre RF11 (autenticação por credenciais) e RF23 (controle de acesso por sessão autenticada).
+  - **Painel de administração**: `src/pages/PainelAdmin.tsx` e componentes `src/components/admin/AbaContas.tsx` (gerência de contas e perfis — RF09), `AbaDados.tsx` (inserção e alteração de registros via interface — RF12 e RF22) e `AbaHistorico.tsx` (registro de auditoria com usuário, ação, data e hora — RF13). Dados de apoio em `src/data/monitoramento-admin.ts`.
+  - **Componentes ShadcnUI adicionados**: `badge.tsx`, `dialog.tsx`, `input.tsx`, `label.tsx` e `tabs.tsx`, dando suporte aos formulários e à navegação por abas do painel.
+  - **Página "Sobre" / "Procure ajuda"**: `src/pages/Sobre.tsx` — página de explicação do sistema em linguagem acessível para adolescentes e seção "Procure ajuda" com canais oficiais de acolhimento. Cobre RF27 (área infantojuvenil) e RF28 (seção "Procure ajuda").
+  - **Direcionamento dos planos decenais**: `src/pages/PlanoDecenal.tsx`, `src/data/planoDecenal.ts` e `src/pages/Home.tsx` — links para mais informações sobre cada plano decenal.
+  - **Dados mockados**: `src/data/compromissos.ts` e `src/data/planoDecenal.ts` — preenchimento dos 23 compromissos com dados de exemplo para o painel e as telas públicas.
+  - `src/components/Header.tsx`, `src/App.tsx` e `src/main.tsx`: roteamento e navegação atualizados para login, painel admin e página "Sobre".
+- `docs/validacao-requisitos.md`: documento de validação do protótipo — status de conformidade de cada RF/RNF e lacunas de implementação.
+- `docs/matriz-rastreabilidade.md`: matriz de rastreabilidade consolidada (RF/RNF ↔ histórias, casos de uso, critérios e regras).
+- `docs/apresentacao.md`: roteiro/material de apresentação da entrega final.
+- `docs/historias-usuario.md`: enumeração final das histórias de usuário (HU01–HU22).
 
 ### Requisitos adicionados / removidos / modificados
 Nenhum. Desde a Semana 3 **não houve adição, remoção ou modificação de escopo, identificador ou semântica** de nenhum RF/RNF. As edições posteriores em `docs/requisitos.md` foram **editoriais** (detalhamento de redação de RF20, RF24, RF26–RF28, correção de referências cruzadas e remoção de linhas redundantes).
 
-### Justificativa
-A validação do protótipo ([`docs/validacao-requisitos.md`](validacao-requisitos.md)) registrou status de conformidade e lacunas de implementação, mas **não motivou reescrita de requisitos** — os achados são pendências de implementação, não de especificação.
+### Justificativas das alterações
+O foco desta etapa foi **implementar no protótipo** as funcionalidades ainda não cobertas — autenticação, painel de administração e área infantojuvenil — em vez de alterar requisitos. A validação do protótipo ([`docs/validacao-requisitos.md`](validacao-requisitos.md)) registrou status de conformidade e lacunas de implementação, mas **não motivou reescrita de requisitos**: os achados são pendências de implementação, não de especificação. Login, painel admin e página "Sobre" foram construídos sobre os RFs já fechados na Semana 3, e os documentos de validação, rastreabilidade e apresentação consolidaram a entrega final.
 
 ### Impactos das mudanças
+- Protótipo passa a cobrir também: RF09 (gerência de contas/perfis), RF11 (autenticação), RF12 (inserção de registros), RF13 (auditoria), RF22 (alteração via interface), RF23 (controle por sessão), RF24 (aplicação da matriz de permissões por perfil), RF27 (área infantojuvenil) e RF28 (seção "Procure ajuda").
 - Conjunto de requisitos **fechado em RF01–RF28 (exceto RF15) e RNF01–RNF08**.
 - Numeração alinhada entre `requisitos.md`, `historias-usuario.md` (HU01–HU22), `criterios-aceite.md` (CA01–CA28 sem o 15), `casos-uso.md` (UC01–UC20) e `regras-negocio.md` (RN01–RN26).
+- Documentos de validação, rastreabilidade e apresentação dão suporte direto à verificação na entrega final.
 - Pendência registrada para validação com o cliente: contatos oficiais da seção "Procure ajuda" (RF28.2).
