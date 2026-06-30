@@ -91,7 +91,7 @@ Este documento registra a validação dos requisitos funcionais e não funcionai
 | CA08.1: Toda alteração em uma tarefa gera entrada no histórico com data, conteúdo anterior e novo conteúdo. | Conforme | A aba Histórico do Painel Admin exibe registros com usuário, ação, data e valor anterior → novo. |
 | CA08.2: O histórico mantém registros anteriores em ordem cronológica. | Conforme | Os registros mockados são listados em ordem cronológica. |
 
-**Rastreabilidade:** HU19 · UC08 · T8 — Tela de Logs de Mudanças (implementada como aba Histórico)
+**Rastreabilidade:** HU19 · UC08 · T6 — Painel Administrativo · aba Histórico
 
 
 ### RF09 — Painel de Administração
@@ -101,7 +101,7 @@ Este documento registra a validação dos requisitos funcionais e não funcionai
 | CA09.1: Apenas usuário administrador acessa o painel de administração. | Conforme | A rota `/painel-admin` redireciona para `/acessar` se não houver usuário logado. |
 | CA09.2: O administrador pode elevar ou reduzir permissões de outro usuário, com efeito verificável no login desse usuário. | Conforme | A aba Contas permite alterar o cargo/permissões de um usuário (dados mockados). |
 
-**Rastreabilidade:** HU16 · UC15 · T6 — Tela de Perfil Administrador
+**Rastreabilidade:** HU16 · UC15 · T6 — Painel Administrativo · aba Contas
 
 
 ### RF10 — Modo de Alto Contraste
@@ -129,7 +129,7 @@ Este documento registra a validação dos requisitos funcionais e não funcionai
 |----------|--------|-------------|
 | CA12.1: Perfil autorizado cadastra problema público, compromisso, objetivo, linha de ação e tarefa; o registro aparece na navegação hierárquica. | Não Conforme | A aba Dados permite editar valores anuais de indicadores e há um botão "Criar Novo Indicador" (sem ação). Não há cadastro das cinco entidades da hierarquia (problema, compromisso, objetivo, linha de ação, tarefa). |
 
-**Rastreabilidade:** HU13 · UC12 · T7 — Tela de Inserção de Dados
+**Rastreabilidade:** HU13 · UC12 · T6 — Painel Administrativo · aba Dados
 
 
 ### RF13 — Registro de Auditoria
@@ -138,7 +138,7 @@ Este documento registra a validação dos requisitos funcionais e não funcionai
 |----------|--------|-------------|
 | CA13.1: Ações que alteram o estado do sistema (criar, editar, excluir, alterar permissões) ficam registradas com usuário, tipo de ação e data/hora consultáveis. | Conforme | A aba Histórico apresenta o registro de auditoria com usuário, cargo, ação e data/hora consultáveis (dados mockados). |
 
-**Rastreabilidade:** HU17 · UC20 · T6 — Tela de Perfil Administrador
+**Rastreabilidade:** HU17 · UC20 · T6 — Painel Administrativo · aba Histórico
 
 
 ### RF14 — Segurança dos Dados (Hash + HTTPS)
@@ -194,7 +194,7 @@ Este documento registra a validação dos requisitos funcionais e não funcionai
 | CA20.1: Existem contas dos três perfis: SEDEF, Conselho/Secretarias e público geral, documentadas para teste. | Parcial | No momento existe uma conta mock que é utilizada para admin e para secretarias. |
 | CA20.2: O perfil público geral não realiza operações reservadas a perfis internos. | Conforme | As páginas públicas já são destinadas ao público geral e nada pode ser alterado por lá. |
 
-**Rastreabilidade:** HU16 · UC15 · T6 — Tela de Perfil Administrador
+**Rastreabilidade:** HU16 · UC15 · T6 — Painel Administrativo · aba Contas
 
 
 ### RF21 — Importação por Planilha
@@ -204,7 +204,7 @@ Este documento registra a validação dos requisitos funcionais e não funcionai
 | CA21.1: Planilha no formato definido importa registros válidos com sucesso. | Não Conforme | Não há funcionalidade de upload/importação de planilha em nenhuma tela. |
 | CA21.2: Planilha com erros gera recusa ou relatório de erro, sem importar linhas inválidas silenciosamente. | Não Conforme | Não aplicável: importação inexistente. |
 
-**Rastreabilidade:** HU15 · UC14 · T7 — Tela de Inserção de Dados
+**Rastreabilidade:** HU15 · UC14 · T6 — Painel Administrativo · aba Dados
 
 
 ### RF22 — Edição de Registros
@@ -213,7 +213,7 @@ Este documento registra a validação dos requisitos funcionais e não funcionai
 |----------|--------|-------------|
 | CA22.1: Perfil autorizado edita dados permitidos; a alteração reflete na visualização e no histórico (RF07/RF08). | Conforme | A aba Dados edita valores anuais de indicadores e a aba Contas edita contas (estado mockado), com a alteração refletida na própria tela. |
 
-**Rastreabilidade:** HU14 · UC13 · T7 — Tela de Inserção de Dados
+**Rastreabilidade:** HU14 · UC13 · T6 — Painel Administrativo · aba Dados
 
 
 ### RF23 — Controle de Sessão por Token
@@ -233,7 +233,7 @@ Este documento registra a validação dos requisitos funcionais e não funcionai
 | CA24.1: Perfil somente leitura visualiza dados mas não consegue salvar alterações (botão ausente ou operação bloqueada). | Conforme | O perfil de somente leitura é o mesmo perfil público, que acessa as páginas fora da área restrita e não altera dados. |
 | CA24.2: Perfil com permissão de edição altera apenas entidades previstas na matriz perfil × permissão. | Parcial | A matriz funciona para o perfil admin e o perfil público (todos que acessam o site), mas não foi implementada especificamente para secretarias. |
 
-**Rastreabilidade:** HU16, HU18 · UC15 / UC11–UC14 · T6 / Todas as telas restritas
+**Rastreabilidade:** HU16, HU18 · UC15 / UC11–UC14 · T6 — Painel Administrativo · aba Contas / Todas as telas restritas
 
 
 ### RF25 — Validação de Formato dos Dados
@@ -243,7 +243,7 @@ Este documento registra a validação dos requisitos funcionais e não funcionai
 | CA25.1: A interface rejeita data inválida, percentual fora de 0–100 e status fora da lista, com mensagem ao usuário. | Parcial | Há validação básica: campos obrigatórios na criação de conta (alerta de campo vazio) e `type="number"` na edição de valores. Faltam validações de data, faixa de percentual (0–100) e lista de status com mensagens ao usuário. |
 | CA25.2: A importação por planilha aplica as mesmas regras e informa linhas rejeitadas. | Não Conforme | Não aplicável: importação inexistente. |
 
-**Rastreabilidade:** HU13, HU14, HU15 · UC12, UC13, UC14 · T7 — Tela de Inserção de Dados
+**Rastreabilidade:** HU13, HU14, HU15 · UC12, UC13, UC14 · T6 — Painel Administrativo · aba Dados
 
 
 ### RF26 — Interface em Português e Espanhol

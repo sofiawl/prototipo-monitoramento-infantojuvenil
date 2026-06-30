@@ -1,31 +1,5 @@
 # Histórico de Versões
 
-Registro acumulado da **evolução dos requisitos** do sistema de monitoramento do Plano Decenal dos Direitos da Criança e do Adolescente. Diferente da [entrega final](../entregas/entrega-final.md) — que é o retrato fechado do estado final — este documento cresce a cada versão e conta *o que mudou e por quê*. Diferente também das provas de entrega [`semana-1`](../entregas/semana-1.md), [`semana-2`](../entregas/semana-2.md) e [`semana-3`](../entregas/semana-3.md), que registram *o que foi entregue* em cada ponto do cronograma; aqui o foco é a **adição, remoção e modificação de requisitos** e o **impacto** de cada mudança nos demais artefatos.
-
-## Formato de Escrita
-
-Cada bloco de versão/semana acumula em ordem cronológica e contém:
-
-```
-## Semana N — breve descrição da etapa
-### Artefatos produzidos/atualizados
-- arquivo: frase curta do que mudou
-### Requisitos adicionados
-- identificador: resumo
-### Requisitos removidos
-- identificador: motivo da remoção
-### Requisitos modificados
-- identificador: antes → depois (resumido; detalhe no log de docs/requisitos.md)
-### Justificativas das alterações
-### Impactos das mudanças
-```
-
-Os blocos não repetem responsáveis nem horários. O detalhamento completo de redação de cada requisito vive no log de mudanças de [`docs/requisitos.md`](requisitos.md); aqui mantém-se a versão resumida com o porquê e o impacto.
-
----
-
-# Histórico
-
 ## Semana 1 — Estrutura base e linha de base dos requisitos
 
 > Detalhe da entrega: [`entregas/semana-1.md`](../entregas/semana-1.md)
